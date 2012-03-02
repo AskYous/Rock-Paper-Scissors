@@ -28,16 +28,18 @@ public class RPSDisplayer {
         PlayerThrower user;
 
         //This automatically generates computers weapon
-        CPUThrower cpu;
+        CPUThrower cpu;String input;
         Scanner scanner = new Scanner(System.in);
 
         System.out.println(info.getIntroMessage());
         info.setRounds(scanner.nextInt());
 
         while (!info.matchOver()) {
+            Scanner scan = new Scanner(System.in);
             cpu = new CPUThrower(); //generates cpu's next weapon.
-            System.out.println("Round: " + info.getRound() + ". " + info.getRoundMessage());
-            String input = scanner.nextLine();
+            System.out.println("Round " + info.getRound() + ". " + info.getRoundMessage());
+            
+            input = scan.nextLine();
 
             if (input.equals("h")) {
                 printHelpInfo();
