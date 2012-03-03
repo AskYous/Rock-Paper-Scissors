@@ -59,7 +59,6 @@ public class RPSDisplayer {
                 user = new PlayerThrower(input);
                 String output = "User threw a " + user.weapon + "!\t "
                         + "CPU threw a " + cpu.weapon + "!";
-                info.updateMatchInfo(user.weapon, cpu.weapon);
 
                 switch (thrower.compareWeapons(user.weapon, cpu.weapon)) {
                     //user wins
@@ -78,9 +77,14 @@ public class RPSDisplayer {
                         info.incrementLoss();
                         break;
                 }
-            } else {
+                
+                info.updateMatchInfo(user.weapon, cpu.weapon);
+            } 
+            
+            else {
                 System.out.println(input + " is not a valid input. Please enter a valid input...");
             }
+            
         }
         printMatchInfo(info);
 

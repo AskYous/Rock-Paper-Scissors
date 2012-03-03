@@ -86,6 +86,9 @@ public class Information {
         return currentRound > rounds;
     }
 
+    /**
+     * Resets the game.
+     */
     public void reset() {
         this.losses = 0;
         this.wins = 0;
@@ -98,12 +101,10 @@ public class Information {
 
     public void incrementWin() {
         this.wins++;
-        updateMatchInfo();
     }
 
     public void incrementLoss() {
         losses++;
-        updateMatchInfo();
     }
 
     public void incrementTie() {
@@ -119,17 +120,18 @@ public class Information {
     }
 
     private void updateMatchInfo() {
-        setMatchInfo(rounds, wins, losses, ties);
+        setMatchInfo(currentRound, wins, losses, ties);
         if (currentRound == rounds) {
             this.winner = determineMatchWinner();
         }
     }
 
     public void updateMatchInfo(Weapon userWeapon, Weapon cpuWeapon) {
-        setMatchInfo(rounds, wins, losses, ties);
+        currentRound++;
+        setMatchInfo(currentRound, wins, losses, ties);
         userWeapons.add(userWeapon);
         cpuWeapons.add(cpuWeapon);
-        currentRound++;
+        
     }
 
     public String getMatchInfo() {
