@@ -130,12 +130,14 @@ public class Information {
         currentRound++;
         setMatchInfo(currentRound, wins, losses, ties);
         userWeapons.add(userWeapon);
-        cpuWeapons.add(cpuWeapon);
-        
+        cpuWeapons.add(cpuWeapon);        
     }
 
     public String getMatchInfo() {
+        if(currentRound>rounds)
+            setMatchInfo(rounds, wins, losses, ties);
         return matchInfo;
+        
     }
 
     private String determineMatchWinner() {
