@@ -1,7 +1,8 @@
 
 /**
- *
- * @author Yousef_2
+ * 
+ * @author Yousef_2, Carlos
+ * @version 1.0
  */
 public class Weapon {
 
@@ -10,10 +11,18 @@ public class Weapon {
     public final String scissor = "s";
     public String weapon;
 
+    /**
+     * Set the weapon for the user.
+     * @param w user's choice of weapon gotten as an input.
+     */    
     public void setWeapon(String w) {
         this.weapon = w;
     }
 
+    /**
+     * Set the weapon for the computer.
+     * @param w randomly generate number.
+     */    
     public void setWeapon(int w) {
         switch (w) {
             case (1):
@@ -28,10 +37,19 @@ public class Weapon {
         }
     }
 
+    /**
+     * Returns weapon selected
+     * @return the weapon
+     */
     public String getWeapon() {
         return weapon;
     }
 
+    /**
+     * Determines winner among weapons.
+     * @param weapon.
+     * @return whether the comparison returned a win, loss or tie.
+     */    
     public int compare(Weapon weapon) {
         int compare = 0;
         String w = weapon.toString();

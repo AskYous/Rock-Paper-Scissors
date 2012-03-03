@@ -2,29 +2,43 @@
 import java.util.Scanner;
 
 /**
- *
- * @author Yousef_2
+ * Displays information and contains the main method that runs and updates the game.
+ * 
+ * @author Yousef_2, Carlos
+ * @version 1.0
  */
 public class RPSDisplayer {
 
     /**
-     * @param args the command line arguments
+     * Prints help information.
+     * @param infor
      */
-    private static void printHelpInfo() {
-        System.out.println(new Information().getHelpInfo());
+    private static void printHelpInfo(Information infor) {
+        System.out.println(infor.getHelpInfo());
     }
 
+    /**
+     * Prints current match information.
+     * @param infor
+     */    
     private static void printMatchInfo(Information infor) {
         System.out.println(infor.getMatchInfo());
     }
 
+    /**
+     * Prints introductory message.
+     * Runs the game.
+     * Updates match information.
+     * @param args
+     */    
     public static void main(String[] args) {
         Information info = new Information();
         Thrower thrower = new Thrower();
         PlayerThrower user;
 
         //This automatically generates computers weapon
-        CPUThrower cpu;String input;
+        CPUThrower cpu;
+        String input;
         Scanner scanner = new Scanner(System.in);
 
         System.out.println(info.getIntroMessage());
@@ -38,7 +52,7 @@ public class RPSDisplayer {
             input = scan.nextLine();
 
             if (input.equals("h")) {
-                printHelpInfo();
+                printHelpInfo(info);
             } else if (input.equals("m")) {
                 printMatchInfo(info);
             } else if (input.equals("r") || input.equals("p") || input.equals("s")) {

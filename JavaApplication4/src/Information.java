@@ -4,7 +4,8 @@ import java.util.List;
 
 /**
  *
- * @author Yousef_2
+ * @author Yousef_2, Carlos
+ * @version 1.0
  */
 public class Information {
 
@@ -26,14 +27,6 @@ public class Information {
         this(0);
     }
 
-    public String getRoundMessage() {
-        return roundMessage;
-    }
-
-    public void setRounds(int rounds) {
-        this.rounds = rounds;
-    }
-
     public Information(int roundsPerMatch) {
         this.rounds = roundsPerMatch;
         this.wins = 0;
@@ -53,19 +46,24 @@ public class Information {
                 + " its weapon at random. Enter your weapon to use against the computer:";
         this.introMessage = "Welcome to Rock, Paper, Scissor game! "
                 + "Start by entering the number of rounds for this match:";
-        this.matchInfo = "Current Round: " + rounds + "\t\tWins: "
+        this.matchInfo = "Current Round: " + currentRound + "\t\tWins: "
                 + wins + "\t\t Losses: " + losses + "\t\tTies: " + ties;
         this.roundMessage = "-----------------------------------------------------------------"
-                + "\nRock, paper, scissor shoot! Enter:'r' for rock, 'p' for paper, 's' for scissor."
+                + "\nRock, paper, scissor shoot!"
+                + "\nEnter:'r' for rock, 'p' for paper, 's' for scissor."
                 + "\nOR 'm' for match info,'h' for help";
+    }
+    
+    public String getRoundMessage() {
+        return roundMessage;
+    }
+
+    public void setRounds(int rounds) {
+        this.rounds = rounds;
     }
 
     public int getLosses() {
         return losses;
-    }
-
-    public boolean matchOver() {
-        return currentRound > rounds;
     }
 
     public int getTies() {
@@ -74,10 +72,18 @@ public class Information {
 
     public int getWins() {
         return wins;
+    }    
+    
+    public int getRound() {
+        return this.currentRound;
     }
-
+    
     public String getIntroMessage() {
         return introMessage;
+    }    
+    
+    public boolean matchOver() {
+        return currentRound > rounds;
     }
 
     public void reset() {
@@ -100,6 +106,10 @@ public class Information {
         updateMatchInfo();
     }
 
+    public void incrementTie() {
+        ties++;
+    }    
+    
     public String getHelpInfo() {
         return helpInfo;
     }
@@ -126,10 +136,6 @@ public class Information {
         return matchInfo;
     }
 
-    public void incrementTie() {
-        ties++;
-    }
-
     private String determineMatchWinner() {
         if (wins == losses) {
             this.winner = "Tie";
@@ -146,9 +152,5 @@ public class Information {
             throw new IllegalStateException("The match is still being played!");
         }
         return winner;
-    }
-
-    public int getRound() {
-        return this.currentRound;
     }
 }
