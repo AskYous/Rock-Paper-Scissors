@@ -96,7 +96,6 @@ public class Information {
         this.rounds = 0;
         this.cpuWeapons.clear();
         this.userWeapons.clear();
-        updateMatchInfo();
     }
 
     public void incrementWin() {
@@ -119,18 +118,15 @@ public class Information {
         this.matchInfo = "Current Round: " + rounds + "\tWins: " + wins + "\t Losses: " + losses + "\tTies: " + ties;
     }
 
-    private void updateMatchInfo() {
-        setMatchInfo(currentRound, wins, losses, ties);
-        if (currentRound == rounds) {
-            this.winner = determineMatchWinner();
-        }
-    }
-
     public void updateMatchInfo(Weapon userWeapon, Weapon cpuWeapon) {
         currentRound++;
         setMatchInfo(currentRound, wins, losses, ties);
         userWeapons.add(userWeapon);
-        cpuWeapons.add(cpuWeapon);        
+        cpuWeapons.add(cpuWeapon); 
+        if (currentRound == rounds) {
+            this.winner = determineMatchWinner();
+        }
+        
     }
 
     public String getMatchInfo() {
