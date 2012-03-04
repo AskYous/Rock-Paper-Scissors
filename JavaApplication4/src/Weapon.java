@@ -15,26 +15,8 @@ public class Weapon {
      * Set the weapon for the user.
      * @param w user's choice of weapon gotten as an input.
      */    
-    public void setWeapon(String w) {
+    public Weapon(String w) {
         this.weapon = w;
-    }
-
-    /**
-     * Set the weapon for the computer.
-     * @param w randomly generate number.
-     */    
-    public void setWeapon(int w) {
-        switch (w) {
-            case (1):
-                weapon = rock;
-                break;
-            case (2):
-                weapon = paper;
-                break;
-            case (3):
-                weapon = scissor;
-                break;
-        }
     }
 
     /**
@@ -50,10 +32,9 @@ public class Weapon {
      * @param weapon.
      * @return whether the comparison returned a win, loss or tie.
      */    
-    public int compare(Weapon weapon) {
+    public int compare(Weapon w) {
         int compare = 0;
-        String w = weapon.toString();
-        if (w.equals(rock) || w.equals("rock")) {
+        if (w.weapon.equals(rock)) {
             if (this.weapon.equals(rock)) {
                 compare = 0;
             }
@@ -65,7 +46,7 @@ public class Weapon {
             }
         }
 
-        if (w.equals(paper) || w.equals("paper")) {
+        if (w.weapon.equals(paper)) {
             if (this.weapon.equals(rock)) {
                 compare = -1;
             }
@@ -77,7 +58,7 @@ public class Weapon {
             }
         }
 
-        if (w.equals(scissor) || w.equals("scissor")) {
+        if (w.weapon.equals(scissor)) {
             if (this.weapon.equals(rock)) {
                 compare = 1;
             }
@@ -91,6 +72,8 @@ public class Weapon {
         return compare;
     }// end compareWeapon method
 
+    
+    
     @Override
     public String toString() {
         String wpn = "";

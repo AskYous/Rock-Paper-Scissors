@@ -15,8 +15,17 @@ public class CPUThrower {
      */
     public CPUThrower() {
         Random rnd = new Random();
-        this.weapon = new Weapon();
-        this.weapon.setWeapon(rnd.nextInt(3) + 1);
+        int code = rnd.nextInt(3);
+        String input = "";
+        while(code == 0)
+            code = rnd.nextInt(3);
+        if(code == 1)
+            input = "r";
+        if(code == 2)
+            input = "p";
+        if(code == 3)
+            input = "s";
+        this.weapon = new Weapon(input);
     }
 
     //for later
@@ -24,3 +33,4 @@ public class CPUThrower {
         this.weapon = weapon;
     }
 }
+

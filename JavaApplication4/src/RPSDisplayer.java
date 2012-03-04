@@ -11,7 +11,7 @@ public class RPSDisplayer {
 
     /**
      * Prints help information.
-     * @param infor
+     * @param current game information.
      */
     private static void printHelpInfo(Information infor) {
         System.out.println(infor.getHelpInfo());
@@ -19,8 +19,8 @@ public class RPSDisplayer {
 
     /**
      * Prints current match information.
-     * @param infor
-     */
+     * @param current game information.
+     */    
     private static void printMatchInfo(Information infor) {
         System.out.println(infor.getMatchInfo());
     }
@@ -67,8 +67,8 @@ public class RPSDisplayer {
                 printMatchInfo(info);
             } else if (input.equals("r") || input.equals("p") || input.equals("s")) {
                 user = new PlayerThrower(input);
-                String output = "User threw a " + user.weapon + "!\t "
-                        + "CPU threw a " + cpu.weapon + "!";
+                String output = "User threw a " + user.weapon.toString() + "!\t "
+                        + "CPU threw a " + cpu.weapon.toString() + "!";
 
                 switch (thrower.compareWeapons(user.weapon, cpu.weapon)) {
                     //user wins
