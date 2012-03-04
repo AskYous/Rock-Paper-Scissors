@@ -15,7 +15,7 @@ public class CPUThrower {
      */
     public CPUThrower() {
         Random rnd = new Random();
-        int code = rnd.nextInt(3);
+        int code = rnd.nextInt(4);
         String input = "";
         while(code == 0)
             code = rnd.nextInt(3);

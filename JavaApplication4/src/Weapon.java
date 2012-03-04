@@ -30,47 +30,34 @@ public class Weapon {
     /**
      * Determines winner among weapons.
      * @param weapon.
-     * @return whether the comparison returned a win, loss or tie.
+     * @return whether the comparison returned a win (1), loss (-1) or tie (0)
      */    
     public int compare(Weapon w) {
-        int compare = 0;
+        int compare = 0;   
+        
         if (w.weapon.equals(rock)) {
-            if (this.weapon.equals(rock)) {
-                compare = 0;
-            }
-            if (this.weapon.equals(paper)) {
+            if (this.weapon.equals(paper))
                 compare = 1;
-            }
-            if (this.weapon.equals(scissor)) {
+            if (this.weapon.equals(scissor))
                 compare = -1;
-            }
         }
 
         if (w.weapon.equals(paper)) {
-            if (this.weapon.equals(rock)) {
-                compare = -1;
-            }
-            if (this.weapon.equals(paper)) {
-                compare = 0;
-            }
-            if (this.weapon.equals(scissor)) {
-                compare = 1;
-            }
+            if (this.weapon.equals(scissor))
+                compare = 1;             
+            if (this.weapon.equals(rock))
+                compare = -1;           
         }
 
         if (w.weapon.equals(scissor)) {
-            if (this.weapon.equals(rock)) {
+            if (this.weapon.equals(rock))
                 compare = 1;
-            }
-            if (this.weapon.equals(paper)) {
+            if (this.weapon.equals(paper))
                 compare = -1;
-            }
-            if (this.weapon.equals(scissor)) {
-                compare = 0;
-            }
         }
+        
         return compare;
-    }// end compareWeapon method
+    }
 
     
     

@@ -67,8 +67,7 @@ public class RPSDisplayer {
                 printMatchInfo(info);
             } else if (input.equals("r") || input.equals("p") || input.equals("s")) {
                 user = new PlayerThrower(input);
-                String output = "User threw a " + user.weapon.toString() + "!\t "
-                        + "CPU threw a " + cpu.weapon.toString() + "!";
+                String output = "User threw a " + user.weapon + "!\t CPU threw a " + cpu.weapon + "!";
 
                 switch (thrower.compareWeapons(user.weapon, cpu.weapon)) {
                     //user wins
