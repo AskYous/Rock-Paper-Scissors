@@ -20,9 +20,19 @@ public class RPSDisplayer {
     /**
      * Prints current match information.
      * @param infor
-     */    
+     */
     private static void printMatchInfo(Information infor) {
         System.out.println(infor.getMatchInfo());
+    }
+
+    private static void printOutro(Information infor) {
+        if (infor.getWins() > infor.getLosses()) {
+            System.out.println("You win!");
+        } else if (infor.getLosses() > infor.getWins()) {
+            System.out.println("CPU Wins!");
+        } else {
+            System.out.println("It's a tie!");
+        }
     }
 
     /**
@@ -30,7 +40,7 @@ public class RPSDisplayer {
      * Runs the game.
      * Updates match information.
      * @param args
-     */    
+     */
     public static void main(String[] args) {
         Information info = new Information();
         Thrower thrower = new Thrower();
@@ -48,7 +58,7 @@ public class RPSDisplayer {
             Scanner scan = new Scanner(System.in);
             cpu = new CPUThrower(); //generates cpu's next weapon.
             System.out.println("Round " + info.getRound() + ". " + info.getRoundMessage());
-            
+
             input = scan.nextLine();
 
             if (input.equals("h")) {
@@ -77,16 +87,14 @@ public class RPSDisplayer {
                         info.incrementLoss();
                         break;
                 }
-                
+
                 info.updateMatchInfo(user.weapon, cpu.weapon);
-            } 
-            
-            else {
+            } else {
                 System.out.println(input + " is not a valid input. Please enter a valid input...");
             }
-            
+
         }
         printMatchInfo(info);
-
+        printOutro(info);
     }
 }
