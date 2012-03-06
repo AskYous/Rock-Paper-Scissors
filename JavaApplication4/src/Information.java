@@ -45,30 +45,20 @@ public class Information {
                 + " its weapon at random. Enter your weapon to use against the computer:";
         this.introMessage = "Welcome to Rock, Paper, Scissor game! "
                 + "Start by entering the number of rounds for this match:";
-        this.matchInfo = "Current Round: " + currentRound + "\t\tWins: "
-                + wins + "\t\t Losses: " + losses + "\t\tTies: " + ties;
         this.roundMessage = "-----------------------------------------------------------------"
                 + "\nRock, paper, scissor shoot!"
                 + "\nEnter:'r' for rock, 'p' for paper, 's' for scissor."
                 + "\nOR 'm' for match info,'h' for help";
     }
-
+    
     /**
      * Gets the round intro message
      * @return the message
-     */
+     */   
     public String getRoundMessage() {
         return roundMessage;
     }
-
-    /**
-     * Sets the number of rounds for the match
-     * @param rounds rounds per match
-     */
-    public void setRounds(int rounds) {
-        this.rounds = rounds;
-    }
-
+   
     /**
      * Returns returns the current number of losses
      * @return losses
@@ -84,15 +74,15 @@ public class Information {
     public int getTies() {
         return ties;
     }
-
+    
     /**
      * returns the current number of wins.
      * @return wins
      */
     public int getWins() {
         return wins;
-    }
-
+    }    
+    
     /**
      * returns the current round in the match
      * @return rounds
@@ -100,21 +90,29 @@ public class Information {
     public int getRound() {
         return this.currentRound;
     }
-
+    
     /**
      * returns the introductory message to the game.
      * @return intro message
-     */
+     */    
     public String getIntroMessage() {
         return introMessage;
-    }
-
+    }    
+   
     /**
      * boolean to see if the match is over. 
      * @return true if match is over. False otherwise.
      */
     public boolean matchOver() {
         return currentRound > rounds;
+    }
+    
+    /**
+     * Sets the number of rounds for the match
+     * @param rounds rounds per match
+     */
+    public void setRounds(int rounds) {
+        this.rounds = rounds;
     }
 
     /**
@@ -151,39 +149,27 @@ public class Information {
     }
 
     /**
-     * returns help diologue.
+     * returns help dialogue.
      * @return help dialogue.
      */
     public String getHelpInfo() {
         return helpInfo;
     }
-
+    
     /**
-     * Sets all the match information needed.
-     * @param rounds rounds per match
-     * @param wins number of wins
-     * @param losses number of losses
-     * @param ties number of ties
-     */
-    public void setMatchInfo(int rounds, int wins, int losses, int ties) {
-        this.matchInfo = "Current Round: " + rounds + "\tWins: " + wins + "\t Losses: " + losses + "\tTies: " + ties;
-    }
-
-    /**
-     * Updates the match information. Increments the current round, adds the last weapon used by the user and the cpu,
-     * and updates wins, losses, and ties.
-     * @param userWeapon
-     * @param cpuWeapon 
+     * Updates the match information
+     * @param userWeapon weapon chose by the user
+     * @param cpuWeapon weapon chose by the cpu
      */
     public void updateMatchInfo(Weapon userWeapon, Weapon cpuWeapon) {
         currentRound++;
-        setMatchInfo(currentRound, wins, losses, ties);
+        this.matchInfo = "Current Round: " + currentRound + "\t\tWins: " + wins + 
+                "\t\t Losses: " + losses + "\t\tTies: " + ties;
         userWeapons.add(userWeapon);
-        cpuWeapons.add(cpuWeapon);
+        cpuWeapons.add(cpuWeapon); 
         if (currentRound == rounds) {
             this.winner = determineMatchWinner();
-        }
-
+        }        
     }
 
     /**
@@ -192,11 +178,11 @@ public class Information {
      * @return match info
      */
     public String getMatchInfo() {
-        if (currentRound > rounds) {
-            setMatchInfo(rounds, wins, losses, ties);
+        if (currentRound>rounds) {
+            currentRound = rounds;
         }
         return matchInfo;
-
+        
     }
 
     /**

@@ -20,7 +20,7 @@ public class RPSDisplayer {
     /**
      * Prints current match information.
      * @param current game information.
-     */
+     */    
     private static void printMatchInfo(Information infor) {
         System.out.println(infor.getMatchInfo());
     }
@@ -48,10 +48,9 @@ public class RPSDisplayer {
     public static void main(String[] args) {
         Information info = new Information();
         Thrower thrower = new Thrower();
-        PlayerThrower user;
 
-        //This automatically generates computers weapon
-        CPUThrower cpu;
+        CPUThrower cpu = new CPUThrower();
+        PlayerThrower user = new PlayerThrower();
         String input;
         Scanner scanner = new Scanner(System.in);
 
@@ -60,7 +59,6 @@ public class RPSDisplayer {
 
         while (!info.matchOver()) {
             Scanner scan = new Scanner(System.in);
-            cpu = new CPUThrower(); //generates cpu's next weapon.
             System.out.println("Round " + info.getRound() + ". " + info.getRoundMessage());
 
             input = scan.nextLine();
@@ -70,10 +68,11 @@ public class RPSDisplayer {
             } else if (input.equals("m")) {
                 printMatchInfo(info);
             } else if (input.equals("r") || input.equals("p") || input.equals("s")) {
-                user = new PlayerThrower(input);
-                String output = "User threw a " + user.weapon + "!\t CPU threw a " + cpu.weapon + "!";
+                user.generateWeapon(1, input);
+                cpu.generateWeapon(1);
+                String output = "User threw a " + user.getWeapon() + "!\t CPU threw a " + cpu.getWeapon() + "!";
 
-                switch (thrower.compareWeapons(user.weapon, cpu.weapon)) {
+                switch (thrower.compareWeapons(user.getWeapon(), cpu.getWeapon())) {
                     //user wins
                     case (1):
                         System.out.println(output + "\tUSER wins!");
@@ -91,7 +90,7 @@ public class RPSDisplayer {
                         break;
                 }
 
-                info.updateMatchInfo(user.weapon, cpu.weapon);
+                info.updateMatchInfo(user.getWeapon(), cpu.getWeapon());
             } else {
                 System.out.println(input + " is not a valid input. Please enter a valid input...");
             }
