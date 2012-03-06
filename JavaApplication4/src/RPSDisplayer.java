@@ -1,4 +1,5 @@
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -38,10 +39,21 @@ public class RPSDisplayer {
         CPUThrower cpu = new CPUThrower();
         PlayerThrower user = new PlayerThrower();
         String input;
-        Scanner scanner = new Scanner(System.in);
 
         System.out.println(info.getIntroMessage());
-        info.setRounds(scanner.nextInt());
+        int rounds = -1;
+        while(rounds == -1){
+            try{
+                Scanner scanner = new Scanner(System.in);
+                rounds = scanner.nextInt();
+                info.setRounds(rounds);
+            }
+            catch(InputMismatchException e){
+                rounds = -1;
+                System.out.println(  "is not a valid input. Please enter a valid input...");
+                
+            }
+        }
 
         while (!info.matchOver()) {
             Scanner scan = new Scanner(System.in);
