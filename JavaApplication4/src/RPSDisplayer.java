@@ -26,20 +26,6 @@ public class RPSDisplayer {
     }
 
     /**
-     * Prints the outro message for the end of the match.
-     * @param infor Information of the match
-     */
-    private static void printOutro(Information infor) {
-        if (infor.getWins() > infor.getLosses()) {
-            System.out.println("You win!");
-        } else if (infor.getLosses() > infor.getWins()) {
-            System.out.println("CPU Wins!");
-        } else {
-            System.out.println("It's a tie!");
-        }
-    }
-
-    /**
      * Prints introductory message.
      * Runs the game.
      * Updates match information.
@@ -96,7 +82,7 @@ public class RPSDisplayer {
             }
 
         }
+        info.updateMatchInfo();
         printMatchInfo(info);
-        printOutro(info);
     }
 }

@@ -167,9 +167,25 @@ public class Information {
                 "\t\t Losses: " + losses + "\t\tTies: " + ties;
         userWeapons.add(userWeapon);
         cpuWeapons.add(cpuWeapon); 
-        if (currentRound == rounds) {
+        if (currentRound > rounds) {
             this.winner = determineMatchWinner();
         }        
+    }    
+    
+    /**
+     * Updates the match information a a final outro message printing the winner.
+     */
+    public void updateMatchInfo() {
+        currentRound = rounds;
+        if(wins == losses){
+        this.matchInfo = "Total Rounds Played: " + currentRound + "\t\tWins: " + wins + 
+                "\t\t Losses: " + losses + "\t\tTies: " + ties + "\nThe Match ended in a: " + getMatchWinner();
+        }
+        else{
+        this.matchInfo = "Total Rounds Played: " + currentRound + "\t\tWins: " + wins + 
+                "\t\t Losses: " + losses + "\t\tTies: " + ties + "\nThe winner is: " + getMatchWinner();           
+        }
+       
     }
 
     /**
@@ -178,9 +194,6 @@ public class Information {
      * @return match info
      */
     public String getMatchInfo() {
-        if (currentRound>rounds) {
-            currentRound = rounds;
-        }
         return matchInfo;
         
     }
@@ -195,7 +208,7 @@ public class Information {
         } else if (wins > losses) {
             winner = "User";
         } else {
-            winner = "cpu";
+            winner = "CPU";
         }
         return winner;
     }
