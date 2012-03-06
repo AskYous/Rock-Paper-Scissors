@@ -60,7 +60,10 @@ public class Weapon {
     }
 
     
-    
+    /**
+     * Overrides Object's toString() method. Returns the weapon as a reader friendly string.
+     * @return the weapon as a string.
+     */
     @Override
     public String toString() {
         String wpn = "";

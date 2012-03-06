@@ -20,11 +20,15 @@ public class RPSDisplayer {
     /**
      * Prints current match information.
      * @param current game information.
-     */    
+     */
     private static void printMatchInfo(Information infor) {
         System.out.println(infor.getMatchInfo());
     }
 
+    /**
+     * Prints the outro message for the end of the match.
+     * @param infor Information of the match
+     */
     private static void printOutro(Information infor) {
         if (infor.getWins() > infor.getLosses()) {
             System.out.println("You win!");
