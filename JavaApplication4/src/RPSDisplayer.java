@@ -39,6 +39,7 @@ public class RPSDisplayer {
         CPUThrower cpu = new CPUThrower();
         PlayerThrower user = new PlayerThrower();
         String input;
+        Comparator<Weapon> comparator =  new WeaponComparator();
 
         System.out.println(info.getIntroMessage());
         int rounds = -1;
@@ -70,11 +71,11 @@ public class RPSDisplayer {
                 cpu.generateWeapon(1);
                 String output = "User threw a " + user.getWeapon() + "!\t CPU threw a " + cpu.getWeapon() + "!";
 
-                int result = thrower.compareWeapons(user.getWeapon(), cpu.getWeapon());
+                int result = comparator.compare(user.getWeapon(), cpu.getWeapon());
                 switch (result) {
                     //user wins
                     case (1):
-                                        System.out.println(output + "\tUSER wins!");                       
+                        System.out.println(output + "\tUSER wins!");                       
                         break;
                     //tie
                     case (0):
