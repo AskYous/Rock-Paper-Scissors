@@ -8,7 +8,6 @@ public class Scores {
     private int wins;
     private int losses;
     private int ties;
-    private String winner;
     
     public Scores(){
         this.wins = 0;
@@ -72,8 +71,9 @@ public class Scores {
      * @return match winner.
      */
     public String determineMatchWinner() {
+        String winner = "";
         if (wins == losses) {
-            this.winner = "Tie";
+            winner = "Tie";
         } else if (wins > losses) {
             winner = "User";
         } else {

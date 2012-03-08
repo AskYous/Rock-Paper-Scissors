@@ -11,11 +11,9 @@ public class Information {
 
     private int rounds;
     private int currentRound;
-    private String helpInfo;
     private String winner;
     private String matchInfo;
     private final String roundMessage;
-    private final String introMessage;
     private static final int PLAYERS = 2;
     private List<Weapon> cpuWeapons;
     private List<Weapon> userWeapons;
@@ -32,15 +30,6 @@ public class Information {
         this.userWeapons = new ArrayList<Weapon>();
         this.cpuWeapons = new ArrayList<Weapon>();
 
-        this.helpInfo = "'Rock, Paper, Scissor' is a game in which players draw "
-                + "their weapon and use them against each other. There are 3 weapons:\n"
-                + "-Rock:'r'\tBeats scissors but losses to papers.\n"
-                + "-Paper:'p'\tBeats rocks but losses to scissors.\n"
-                + "-Scissor:'s'\tBeats papers but losses to rocks.\n"
-                + "You are versing the computer and the computer chooses"
-                + " its weapon at random. Enter your weapon to use against the computer:";
-        this.introMessage = "Welcome to Rock, Paper, Scissor game! "
-                + "Start by entering the number of rounds for this match:";
         this.roundMessage = "-----------------------------------------------------------------"
                 + "\nRock, paper, scissor shoot!"
                 + "\nEnter:'r' for rock, 'p' for paper, 's' for scissor."
@@ -63,13 +52,6 @@ public class Information {
         return this.currentRound;
     }
     
-    /**
-     * returns the introductory message to the game.
-     * @return intro message
-     */    
-    public String getIntroMessage() {
-        return introMessage;
-    }    
    
     /**
      * boolean to see if the match is over. 
@@ -107,14 +89,6 @@ public class Information {
         if (result == 1){
             scores.incrementWin();
         }
-    }
-
-    /**
-     * returns help dialogue.
-     * @return help dialogue.
-     */
-    public String getHelpInfo() {
-        return helpInfo;
     }
     
     /**

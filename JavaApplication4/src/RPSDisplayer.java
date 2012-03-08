@@ -12,16 +12,33 @@ import java.util.Scanner;
 public class RPSDisplayer {
 
     String invalid;
+    private String helpInfo;
+    private final String roundMessage;
+    private final String introMessage;
 
     public RPSDisplayer() {
         String invalid = "is not a valid input. Please enter a valid input...";
+        
+        this.helpInfo = "'Rock, Paper, Scissor' is a game in which players draw "
+                + "their weapon and use them against each other. There are 3 weapons:\n"
+                + "-Rock:'r'\tBeats scissors but losses to papers.\n"
+                + "-Paper:'p'\tBeats rocks but losses to scissors.\n"
+                + "-Scissor:'s'\tBeats papers but losses to rocks.\n"
+                + "You are versing the computer and the computer chooses"
+                + " its weapon at random. Enter your weapon to use against the computer:";
+        this.introMessage = "Welcome to Rock, Paper, Scissor game! "
+                + "Start by entering the number of rounds for this match:";
+        this.roundMessage = "-----------------------------------------------------------------"
+                + "\nRock, paper, scissor shoot!"
+                + "\nEnter:'r' for rock, 'p' for paper, 's' for scissor."
+                + "\nOR 'm' for match info,'h' for help";
     }
 
     /**
      * Prints help information.
      * @param current game information.
      */
-    public void printHelpInfo(String helpInfo) {
+    public void printHelpInfo() {
         System.out.println(helpInfo);
     }
 
@@ -37,8 +54,8 @@ public class RPSDisplayer {
      * Prints current match information.
      * @param current game information.
      */
-    public void printIntroMessage(String intro) {
-        System.out.println(intro);
+    public void printIntroMessage() {
+        System.out.println(introMessage);
     }
 
     /**

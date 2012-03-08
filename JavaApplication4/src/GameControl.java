@@ -24,7 +24,7 @@ public class GameControl {
         String input;
         Comparator<Weapon> comparator = new WeaponComparator();
 
-        displayer.printIntroMessage(info.getIntroMessage());
+        displayer.printIntroMessage();
         int rounds = -1;
         while (rounds == -1) {
             try {
@@ -45,7 +45,7 @@ public class GameControl {
             input = scan.nextLine();
 
             if (input.equals("h")) {
-                displayer.printHelpInfo(info.getHelpInfo());
+                displayer.printHelpInfo();
             } else if (input.equals("m")) {
                 displayer.printMatchInfo(info.getMatchInfo());
             } else if (input.equals("r") || input.equals("p") || input.equals("s")) {
