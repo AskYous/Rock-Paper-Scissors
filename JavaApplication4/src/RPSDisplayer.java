@@ -1,4 +1,5 @@
 
+import java.util.Comparator;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -10,91 +11,83 @@ import java.util.Scanner;
  */
 public class RPSDisplayer {
 
+    String invalid;
+
+    public RPSDisplayer() {
+        String invalid = "is not a valid input. Please enter a valid input...";
+    }
+
     /**
      * Prints help information.
      * @param current game information.
      */
-    private static void printHelpInfo(Information infor) {
-        System.out.println(infor.getHelpInfo());
+    public void printHelpInfo(String helpInfo) {
+        System.out.println(helpInfo);
     }
 
     /**
      * Prints current match information.
      * @param current game information.
-     */    
-    private static void printMatchInfo(Information infor) {
-        System.out.println(infor.getMatchInfo());
+     */
+    public void printMatchInfo(String matchInfo) {
+        System.out.println(matchInfo);
     }
 
     /**
-     * Prints introductory message.
-     * Runs the game.
-     * Updates match information.
-     * @param args
+     * Prints current match information.
+     * @param current game information.
      */
-    public static void main(String[] args) {
-        Information info = new Information();
-        Thrower thrower = new Thrower();
-
-        CPUThrower cpu = new CPUThrower();
-        PlayerThrower user = new PlayerThrower();
-        String input;
-        Comparator<Weapon> comparator =  new WeaponComparator();
-
-        System.out.println(info.getIntroMessage());
-        int rounds = -1;
-        while(rounds == -1){
-            try{
-                Scanner scanner = new Scanner(System.in);
-                rounds = scanner.nextInt();
-                info.setRounds(rounds);
-            }
-            catch(InputMismatchException e){
-                rounds = -1;
-                System.out.println(  "is not a valid input. Please enter a valid input...");
-                
-            }
-        }
-
-        while (!info.matchOver()) {
-            Scanner scan = new Scanner(System.in);
-            System.out.println("Round " + info.getRound() + ". " + info.getRoundMessage());
-
-            input = scan.nextLine();
-
-            if (input.equals("h")) {
-                printHelpInfo(info);
-            } else if (input.equals("m")) {
-                printMatchInfo(info);
-            } else if (input.equals("r") || input.equals("p") || input.equals("s")) {
-                user.generateWeapon(1, input);
-                cpu.generateWeapon(1);
-                String output = "User threw a " + user.getWeapon() + "!\t CPU threw a " + cpu.getWeapon() + "!";
-
-                int result = comparator.compare(user.getWeapon(), cpu.getWeapon());
-                switch (result) {
-                    //user wins
-                    case (1):
-                        System.out.println(output + "\tUSER wins!");                       
-                        break;
-                    //tie
-                    case (0):
-                        System.out.println(output + "\tIt's a TIE!");                   
-                        break;
-                    //user loss
-                    case (-1):
-                        System.out.println(output + "\tCPU wins!");
-                        break;
-                }
-                info.updateScores(result);
-
-                info.updateMatchInfo(user.getWeapon(), cpu.getWeapon());
-            } else {
-                System.out.println(input + " is not a valid input. Please enter a valid input...");
-            }
-
-        }
-        info.updateMatchInfo();
-        printMatchInfo(info);
+    public void printIntroMessage(String intro) {
+        System.out.println(intro);
     }
+
+    /**
+     * Prints the invalid input message
+     */
+    public void printInvalid() {
+        System.out.println(invalid);
+    }
+
+    /*
+     * Prints that user won
+     */
+    public void printWin(Weapon weapon1, Weapon weapon2) {
+        System.out.println("User threw: " + printWeapon(weapon1) + "!\t CPU threw: " + printWeapon(weapon2) + "!" + "\nUser Wins!");
+    }
+
+    /*
+     * Prints that user lost
+     */
+    public void printLoss(Weapon weapon1, Weapon weapon2) {
+        System.out.println("User threw: " + printWeapon(weapon1) + "!\t CPU threw: " + printWeapon(weapon2) + "!" + "\nCPU Wins!");
+    }
+
+    /*
+     * Prints that user lost
+     */
+    public void printTie(Weapon weapon1) {
+        System.out.println("User threw: " + printWeapon(weapon1) + "!\t CPU threw: " + printWeapon(weapon1) + "!" + "\nIt's a Tie!");
+    }
+
+    /**
+     * Overrides Object's toString() method. Returns the weapon as a reader friendly string.
+     * @return the weapon as a string.
+     */
+    private String printWeapon(Weapon weapon) {
+        String wpn = "";
+        switch (weapon) {
+            case ROCK:
+                wpn = "rock";
+                break;
+            case PAPER:
+                wpn = "paper";
+                break;
+            case SCISSORS:
+                wpn = "scissor";
+                break;
+        }
+        return wpn;      
+    }
+   
+    
 }

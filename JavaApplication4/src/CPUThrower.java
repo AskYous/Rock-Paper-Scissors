@@ -21,16 +21,16 @@ public class CPUThrower extends Thrower{
                 code = rnd.nextInt(3);
             }
             if (code == 1) {
-                input = "r";
+                super.setWeapon(Weapon.ROCK);
             }
-            if (code == 2) {
-                input = "p";
+            else if (code == 2) {
+                super.setWeapon(Weapon.PAPER);
             }
-            if (code == 3) {
-                input = "s";
-            }
-            super.setWeapon(new Weapon(input));
+            else if (code == 3) {
+                super.setWeapon(Weapon.SCISSORS);
+            }          
             return super.getWeapon();
+            
         }
         else
             return null;
