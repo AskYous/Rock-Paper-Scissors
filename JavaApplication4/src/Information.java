@@ -9,9 +9,6 @@ import java.util.List;
  */
 public class Information {
 
-    private int wins;
-    private int losses;
-    private int ties;
     private int rounds;
     private int currentRound;
     private String helpInfo;
@@ -22,6 +19,7 @@ public class Information {
     private static final int PLAYERS = 2;
     private List<Weapon> cpuWeapons;
     private List<Weapon> userWeapons;
+    private Scores scores;
 
     public Information() {
         this(0);
@@ -29,9 +27,7 @@ public class Information {
 
     public Information(int roundsPerMatch) {
         this.rounds = roundsPerMatch;
-        this.wins = 0;
-        this.losses = 0;
-        this.ties = 0;
+        this.scores = new Scores();
         this.currentRound = 1;
         this.userWeapons = new ArrayList<Weapon>();
         this.cpuWeapons = new ArrayList<Weapon>();
@@ -57,31 +53,7 @@ public class Information {
      */   
     public String getRoundMessage() {
         return roundMessage;
-    }
-   
-    /**
-     * Returns returns the current number of losses
-     * @return losses
-     */
-    public int getLosses() {
-        return losses;
-    }
-
-    /**
-     * returns the current number of ties
-     * @return ties
-     */
-    public int getTies() {
-        return ties;
-    }
-    
-    /**
-     * returns the current number of wins.
-     * @return wins
-     */
-    public int getWins() {
-        return wins;
-    }    
+    } 
     
     /**
      * returns the current round in the match
@@ -119,33 +91,22 @@ public class Information {
      * Resets the game.
      */
     public void reset() {
-        this.losses = 0;
-        this.wins = 0;
-        this.ties = 0;
+        this.scores.reset();
         this.rounds = 0;
         this.cpuWeapons.clear();
         this.userWeapons.clear();
     }
 
-    /**
-     * increments the current number of wins. 
-     */
-    public void incrementWin() {
-        this.wins++;
-    }
-
-    /** 
-     * increments the current number of losses.
-     */
-    public void incrementLoss() {
-        losses++;
-    }
-
-    /**
-     * increments the current number of ties.
-     */
-    public void incrementTie() {
-        ties++;
+    public void updateScores(int result){
+        if (result == 0){
+            scores.incrementTie();
+        }
+        if (result == -1){
+            scores.incrementLoss();
+        }
+        if (result == 1){
+            scores.incrementWin();
+        }
     }
 
     /**
@@ -163,27 +124,27 @@ public class Information {
      */
     public void updateMatchInfo(Weapon userWeapon, Weapon cpuWeapon) {
         currentRound++;
-        this.matchInfo = "Current Round: " + currentRound + "\t\tWins: " + wins + 
-                "\t\t Losses: " + losses + "\t\tTies: " + ties;
+        this.matchInfo = "Current Round: " + currentRound + "\t\tWins: " + scores.getWins() + 
+                "\t\t Losses: " + scores.getLosses() + "\t\tTies: " + scores.getTies();
         userWeapons.add(userWeapon);
         cpuWeapons.add(cpuWeapon); 
         if (currentRound > rounds) {
-            this.winner = determineMatchWinner();
+            this.winner = scores.determineMatchWinner();
         }        
     }    
     
     /**
-     * Updates the match information a a final outro message printing the winner.
+     * Updates the match information as a final outro message printing the winner.
      */
     public void updateMatchInfo() {
         currentRound = rounds;
-        if(wins == losses){
-        this.matchInfo = "Total Rounds Played: " + currentRound + "\t\tWins: " + wins + 
-                "\t\t Losses: " + losses + "\t\tTies: " + ties + "\nThe Match ended in a: " + getMatchWinner();
+        if(scores.getWins() == scores.getLosses()){
+        this.matchInfo = "Total Rounds Played: " + currentRound + "\t\tWins: " + scores.getWins() + 
+                "\t\t Losses: " + scores.getLosses() + "\t\tTies: " + scores.getTies() + "\nThe Match ended in a: " + getMatchWinner();
         }
         else{
-        this.matchInfo = "Total Rounds Played: " + currentRound + "\t\tWins: " + wins + 
-                "\t\t Losses: " + losses + "\t\tTies: " + ties + "\nThe winner is: " + getMatchWinner();           
+        this.matchInfo = "Total Rounds Played: " + currentRound + "\t\tWins: " + scores.getWins() + 
+                "\t\t Losses: " + scores.getLosses() + "\t\tTies: " + scores.getTies() + "\nThe winner is: " + getMatchWinner();           
         }
        
     }
@@ -194,23 +155,7 @@ public class Information {
      * @return match info
      */
     public String getMatchInfo() {
-        return matchInfo;
-        
-    }
-
-    /**
-     * determines the match winner between user and cpu (or a tie).
-     * @return match winner.
-     */
-    private String determineMatchWinner() {
-        if (wins == losses) {
-            this.winner = "Tie";
-        } else if (wins > losses) {
-            winner = "User";
-        } else {
-            winner = "CPU";
-        }
-        return winner;
+        return matchInfo;  
     }
 
     /**

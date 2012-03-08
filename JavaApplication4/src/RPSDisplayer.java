@@ -70,23 +70,22 @@ public class RPSDisplayer {
                 cpu.generateWeapon(1);
                 String output = "User threw a " + user.getWeapon() + "!\t CPU threw a " + cpu.getWeapon() + "!";
 
-                switch (thrower.compareWeapons(user.getWeapon(), cpu.getWeapon())) {
+                int result = thrower.compareWeapons(user.getWeapon(), cpu.getWeapon());
+                switch (result) {
                     //user wins
                     case (1):
-                        System.out.println(output + "\tUSER wins!");
-                        info.incrementWin();
+                                        System.out.println(output + "\tUSER wins!");                       
                         break;
                     //tie
                     case (0):
-                        System.out.println(output + "\tIt's a TIE!");
-                        info.incrementTie();
+                        System.out.println(output + "\tIt's a TIE!");                   
                         break;
                     //user loss
                     case (-1):
                         System.out.println(output + "\tCPU wins!");
-                        info.incrementLoss();
                         break;
                 }
+                info.updateScores(result);
 
                 info.updateMatchInfo(user.getWeapon(), cpu.getWeapon());
             } else {
