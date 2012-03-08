@@ -6,8 +6,6 @@ import java.util.Random;
  */
 public class CPUThrower extends Thrower{
 
-    private Weapon weapon;
-
     /**
      * Constructor
      */
@@ -31,24 +29,12 @@ public class CPUThrower extends Thrower{
             if (code == 3) {
                 input = "s";
             }
-            this.weapon = new Weapon(input);
-            return weapon;
+            super.setWeapon(new Weapon(input));
+            return super.getWeapon();
         }
         else
             return null;
     }
-    
-    public Weapon getWeapon(){
-        return weapon;
-    }
-           
-
-    /**
-    * Set's the weapon for the cpu. Not used yet as the cpu's weapon is generated at random.
-    * @param weapon for the cpu
-    */
-    public void setWeapon(Weapon weapon) {
-        this.weapon = weapon;
-    }
+   
 }
 

@@ -4,7 +4,7 @@
  * @version 1.0
  */
 public class PlayerThrower extends Thrower{
-    public Weapon weapon;
+    
 
     public PlayerThrower() {
     }
@@ -16,15 +16,12 @@ public class PlayerThrower extends Thrower{
      */
     public Weapon generateWeapon(int ALG_TYPE,String input){
         if(ALG_TYPE ==1){
-            this.weapon = new Weapon(input);
-            return weapon;  
+            super.setWeapon(new Weapon(input));
+            return super.getWeapon();  
         }
         else
             return null;
     } 
     
-    public Weapon getWeapon(){
-        return weapon;
-    }
     
 }
