@@ -26,34 +26,35 @@ public class WeaponComparator implements Comparator<Weapon> {
             case ROCK:
                 switch (cpuW) {
                     case PAPER:
-                        compare = 1;
+                        compare = -1;
                         break;
                     case SCISSORS:
-                        compare = -1;
+                        compare = 1;
                         break;
                 }
                 break;
             case PAPER:
                 switch (cpuW) {
                     case SCISSORS:
-                        compare = 1;
-                        break;
-                    case ROCK:
                         compare = -1;
                         break;
+                    case ROCK:
+                        compare = 1;
+                        break;
                 }
+                break;
             case SCISSORS:
                 switch (cpuW) {
                     case ROCK:
-                        compare = 1;
-                        break;
-                    case PAPER:
                         compare = -1;
                         break;
-
+                    case PAPER:
+                        compare = 1;
+                        break;
                 }
+                break;
         }
-        
+
         return compare;
     }
 }
