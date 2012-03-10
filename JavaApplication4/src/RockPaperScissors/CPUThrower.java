@@ -5,6 +5,8 @@ import java.util.Random;
 
 /**
  * Simulates the computer as a player of rock paper scissors game.
+ * @version 1.0
+ * @author Team Guilty Crown
  */
 public class CPUThrower extends Thrower{
 
@@ -14,6 +16,11 @@ public class CPUThrower extends Thrower{
     public CPUThrower() {
     }
 
+    /**
+     * Generates a weapon depending on the algorithm wanted. Random for now.
+     * @param ALG_TYPE type of algorithm
+     * @return a weapon
+     */
     public Weapon generateWeapon(int ALG_TYPE){
         if(ALG_TYPE ==1){
             Random rnd = new Random();

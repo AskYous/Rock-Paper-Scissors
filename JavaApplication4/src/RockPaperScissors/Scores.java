@@ -2,8 +2,9 @@ package RockPaperScissors;
 
 
 /**
- *
- * @author kqarlos
+ * Holds score information
+ * @version 1.0
+ * @author Team Guilty Crown
  */
 public class Scores {
     
@@ -11,14 +12,20 @@ public class Scores {
     private int losses;
     private int ties;
     
+    /**
+     * Initializes all ties/losses/wins to 0
+     */
     public Scores(){
         this.wins = 0;
         this.losses = 0;
         this.ties = 0;
     }
     
+    /**
+     * Resets the scoreboard
+     */
     public void reset(){
-            this.losses = 0;
+        this.losses = 0;
         this.wins = 0;
         this.ties = 0;
     }

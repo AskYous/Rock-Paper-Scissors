@@ -7,9 +7,8 @@ import java.util.Scanner;
 
 /**
  * Displays information and contains the main method that runs and updates the game.
- * 
- * @author Yousef_2, Carlos
  * @version 1.0
+ * @author Team Guilty Crown
  */
 public class RPSDisplayer {
 
@@ -18,6 +17,9 @@ public class RPSDisplayer {
     private final String roundMessage;
     private final String introMessage;
 
+    /**
+     * Initializes messages that will not change
+     */
     public RPSDisplayer() {
         String invalid = "is not a valid input. Please enter a valid input...";
         
@@ -38,7 +40,6 @@ public class RPSDisplayer {
 
     /**
      * Prints help information.
-     * @param current game information.
      */
     public void printHelpInfo() {
         System.out.println(helpInfo);
@@ -46,15 +47,13 @@ public class RPSDisplayer {
 
     /**
      * Prints current match information.
-     * @param current game information.
      */
     public void printMatchInfo(String matchInfo) {
         System.out.println(matchInfo);
     }
 
     /**
-     * Prints current match information.
-     * @param current game information.
+     * Prints match introductory message information.
      */
     public void printIntroMessage() {
         System.out.println(introMessage);
@@ -82,14 +81,14 @@ public class RPSDisplayer {
     }
 
     /*
-     * Prints that user lost
+     * Prints a tied happened
      */
     public void printTie(Weapon weapon1) {
         System.out.println("User threw: " + printWeapon(weapon1) + "!\t CPU threw: " + printWeapon(weapon1) + "!" + "\nIt's a Tie!");
     }
 
     /**
-     * Overrides Object's toString() method. Returns the weapon as a reader friendly string.
+     * Returns the weapon as a reader friendly string.
      * @return the weapon as a string.
      */
     private String printWeapon(Weapon weapon) {

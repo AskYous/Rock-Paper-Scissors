@@ -6,13 +6,13 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- *
- * @author kqarlos
+ * Runs the game with the main method
+ * @version 1.0
+ * @author Team Guilty Crown
  */
 public class GameControl {
 
-    /**
-     * Prints introductory message.
+    /**    
      * Runs the game.
      * Updates match information.
      * @param args

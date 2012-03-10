@@ -4,6 +4,7 @@ package RockPaperScissors;
 /**
  * This class sets the weapon for the user.
  * @version 1.0
+ * @author Team Guilty Crown
  */
 public class PlayerThrower extends Thrower {
 
@@ -12,7 +13,6 @@ public class PlayerThrower extends Thrower {
 
     /**
      * sets the weapon of the user.
-     * @param ALG_TYPE type of algorithm
      * @param input the weapon as a string
      */
     public Weapon generateWeapon(String input) {

@@ -3,20 +3,17 @@ package RockPaperScissors;
 
 import java.util.Comparator;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 /**
- *
- * @author kqarlos
+ * Compares two weapons
+ * @version 1.0
+ * @author Team Guilty Crown
  */
 public class WeaponComparator implements Comparator<Weapon> {
 
     /**
      * Similar to the Comparables compare method. Compares the weapons given
-     * @param w1 weapon 1
-     * @param w2weapon 2
+     * @param userW weapon 1
+     * @param cpuW weapon 2
      * @return Numerical value indicating win, loss, or tie.
      */
     @Override

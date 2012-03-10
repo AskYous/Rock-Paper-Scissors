@@ -8,6 +8,7 @@ import java.util.List;
  * This class stores all the information of the match being played.
  * Can also determine match winner after the match is complete.
  * @version 1.0
+ * @author Team Guilty Crown
  */
 public class Information {
 
@@ -21,10 +22,17 @@ public class Information {
     private List<Weapon> userWeapons;
     private Scores scores;
 
+    /**
+     * Creates an information class with 0 rounds
+     */
     public Information() {
         this(0);
     }
-
+    
+    /**
+     * Creates an Information class with a defined number of rounds
+     * @param roundsPerMatch number of total rounds
+     */
     public Information(int roundsPerMatch) {
         this.rounds = roundsPerMatch;
         this.scores = new Scores();
@@ -81,6 +89,10 @@ public class Information {
         this.userWeapons.clear();
     }
 
+    /**
+     * Updates the scores class
+     * @param result who won in a single round
+     */
     public void updateScores(int result){
         if (result == 0){
             scores.incrementTie();

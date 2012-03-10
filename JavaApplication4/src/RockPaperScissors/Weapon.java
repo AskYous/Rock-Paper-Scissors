@@ -2,9 +2,9 @@ package RockPaperScissors;
 
 
 /**
- * 
- * @author Yousef_2, Carlos
+ * Enumerated class type holding the three constant weapons
  * @version 1.0
+ * @author Team Guilty Crown
  */
 public enum Weapon {
     
