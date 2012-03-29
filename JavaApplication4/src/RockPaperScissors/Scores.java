@@ -1,35 +1,30 @@
-package RockPaperScissors;
-
-
 /**
- * Holds score information
- * @version 1.0
- * @author Team Guilty Crown
+*
  */
 public class Scores {
-    
+
     private int wins;
     private int losses;
     private int ties;
-    
+
     /**
-     * Initializes all ties/losses/wins to 0
+     * Constructor for the scores class.
      */
-    public Scores(){
+    public Scores() {
         this.wins = 0;
         this.losses = 0;
         this.ties = 0;
     }
-    
+
     /**
-     * Resets the scoreboard
+     * Resets all fields.
      */
-    public void reset(){
+    public void reset() {
         this.losses = 0;
         this.wins = 0;
         this.ties = 0;
     }
-    
+
     /**
      * Returns returns the current number of losses
      * @return losses
@@ -45,15 +40,15 @@ public class Scores {
     public int getTies() {
         return ties;
     }
-    
+
     /**
      * returns the current number of wins.
      * @return wins
      */
     public int getWins() {
         return wins;
-    } 
-    
+    }
+
     /**
      * increments the current number of wins. 
      */
@@ -74,7 +69,7 @@ public class Scores {
     public void incrementTie() {
         ties++;
     }
-    
+
     /**
      * determines the match winner between user and cpu (or a tie).
      * @return match winner.
@@ -90,5 +85,4 @@ public class Scores {
         }
         return winner;
     }
-    
 }

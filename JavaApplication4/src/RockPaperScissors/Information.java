@@ -1,6 +1,3 @@
-package RockPaperScissors;
-
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +5,6 @@ import java.util.List;
  * This class stores all the information of the match being played.
  * Can also determine match winner after the match is complete.
  * @version 1.0
- * @author Team Guilty Crown
  */
 public class Information {
 
@@ -23,15 +19,17 @@ public class Information {
     private Scores scores;
 
     /**
-     * Creates an information class with 0 rounds
+     * Constructor for Information class. Stores all information
+     * related to the match being played.
      */
     public Information() {
         this(0);
     }
-    
+
     /**
-     * Creates an Information class with a defined number of rounds
-     * @param roundsPerMatch number of total rounds
+     * Constructor for Information class. Stores all information
+     * related to the match being played.
+     * @param roundsPerMatch sets the number of rounds per match
      */
     public Information(int roundsPerMatch) {
         this.rounds = roundsPerMatch;
@@ -90,8 +88,8 @@ public class Information {
     }
 
     /**
-     * Updates the scores class
-     * @param result who won in a single round
+     * Updates score depending on if user wins, losses, or ties.
+     * @param result Outcome of round
      */
     public void updateScores(int result){
         if (result == 0){

@@ -1,13 +1,19 @@
-package RockPaperScissors;
-
-
 /**
- * Enumerated class type holding the three constant weapons
- * @version 1.0
- * @author Team Guilty Crown
+ * Weapon class. Has fields of ROCK, PAPER, SCISSORS.
  */
 public enum Weapon {
     
-    ROCK, PAPER, SCISSORS;
+    /**
+     * Rock weapon. Beats scissors but losses to paper.
+     */
+    ROCK,
+    /**
+     * Paper weapon. Beats rock but losses to scissors.
+     */
+    PAPER,
+    /**
+     * Scissors weapon. Beats paper but losses to rock.
+     */
+    SCISSORS;
     
 }

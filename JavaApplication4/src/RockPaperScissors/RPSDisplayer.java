@@ -1,27 +1,18 @@
-package RockPaperScissors;
-
-
-import java.util.Comparator;
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
 /**
  * Displays information and contains the main method that runs and updates the game.
- * @version 1.0
- * @author Team Guilty Crown
+
  */
 public class RPSDisplayer {
 
     String invalid;
     private String helpInfo;
-    private final String roundMessage;
     private final String introMessage;
 
     /**
-     * Initializes messages that will not change
+     * Constructor for the displayer class. Sets the messages.
      */
     public RPSDisplayer() {
-        String invalid = "is not a valid input. Please enter a valid input...";
+        this.invalid = "That is not a valid input. Please enter a valid input...";
         
         this.helpInfo = "'Rock, Paper, Scissor' is a game in which players draw "
                 + "their weapon and use them against each other. There are 3 weapons:\n"
@@ -32,10 +23,6 @@ public class RPSDisplayer {
                 + " its weapon at random. Enter your weapon to use against the computer:";
         this.introMessage = "Welcome to Rock, Paper, Scissor game! "
                 + "Start by entering the number of rounds for this match:";
-        this.roundMessage = "-----------------------------------------------------------------"
-                + "\nRock, paper, scissor shoot!"
-                + "\nEnter:'r' for rock, 'p' for paper, 's' for scissor."
-                + "\nOR 'm' for match info,'h' for help";
     }
 
     /**
@@ -47,13 +34,14 @@ public class RPSDisplayer {
 
     /**
      * Prints current match information.
+     * @param matchInfo 
      */
     public void printMatchInfo(String matchInfo) {
         System.out.println(matchInfo);
     }
 
     /**
-     * Prints match introductory message information.
+     * Prints current match information.
      */
     public void printIntroMessage() {
         System.out.println(introMessage);
@@ -68,27 +56,32 @@ public class RPSDisplayer {
 
     /*
      * Prints that user won
+     * @param weapon1 user's Weapon
+     * @param weapon2 cpu's Weapon
      */
-    public void printWin(Weapon weapon1, Weapon weapon2) {
-        System.out.println("User threw: " + printWeapon(weapon1) + "!\t CPU threw: " + printWeapon(weapon2) + "!" + "\nUser Wins!");
+    public void printWin(Weapon userWeapon, Weapon cpuWeapon) {
+        System.out.println("User threw: " + printWeapon(userWeapon) + "!\t CPU threw: " + printWeapon(cpuWeapon) + "!" + "\nUser Wins!");
     }
 
     /*
      * Prints that user lost
+     * @param weapon1
+     * @param weapon2
      */
-    public void printLoss(Weapon weapon1, Weapon weapon2) {
-        System.out.println("User threw: " + printWeapon(weapon1) + "!\t CPU threw: " + printWeapon(weapon2) + "!" + "\nCPU Wins!");
+    public void printLoss(Weapon userWeapon, Weapon cpuWeapon) {
+        System.out.println("User threw: " + printWeapon(userWeapon) + "!\t CPU threw: " + printWeapon(cpuWeapon) + "!" + "\nCPU Wins!");
     }
 
     /*
-     * Prints a tied happened
+     * Prints that user lost
+     * @param weapon1 User's Weapon which is the same as CPU's weapon.
      */
-    public void printTie(Weapon weapon1) {
-        System.out.println("User threw: " + printWeapon(weapon1) + "!\t CPU threw: " + printWeapon(weapon1) + "!" + "\nIt's a Tie!");
+    public void printTie(Weapon weapon) {
+        System.out.println("User threw: " + printWeapon(weapon) + "!\t CPU threw: " + printWeapon(weapon) + "!" + "\nIt's a Tie!");
     }
 
     /**
-     * Returns the weapon as a reader friendly string.
+     * Overrides Object's toString() method. Returns the weapon as a reader friendly string.
      * @return the weapon as a string.
      */
     private String printWeapon(Weapon weapon) {

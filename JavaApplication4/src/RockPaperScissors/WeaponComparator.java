@@ -1,29 +1,27 @@
-package RockPaperScissors;
-
 
 import java.util.Comparator;
 
-/**
- * Compares two weapons
- * @version 1.0
- * @author Team Guilty Crown
+
+
+/*
+ *Weapon comparator class. Compares 2 weapons and returns corresponding value.
  */
 public class WeaponComparator implements Comparator<Weapon> {
 
     /**
-     * Similar to the Comparables compare method. Compares the weapons given
-     * @param userW weapon 1
-     * @param cpuW weapon 2
+     * Similar to the Comparables compare method. Compares the weapons given.
+     * @param weapon1 User's weapon.
+     * @param weapon2 CPU's weapon.
      * @return Numerical value indicating win, loss, or tie.
      */
     @Override
-    public int compare(Weapon userW, Weapon cpuW) {
+    public int compare(Weapon weapon1, Weapon weapon2) {
 
         int compare = 0;
 
-        switch (userW) {
+        switch (weapon1) {
             case ROCK:
-                switch (cpuW) {
+                switch (weapon2) {
                     case PAPER:
                         compare = -1;
                         break;
@@ -33,7 +31,7 @@ public class WeaponComparator implements Comparator<Weapon> {
                 }
                 break;
             case PAPER:
-                switch (cpuW) {
+                switch (weapon2) {
                     case SCISSORS:
                         compare = -1;
                         break;
@@ -43,7 +41,7 @@ public class WeaponComparator implements Comparator<Weapon> {
                 }
                 break;
             case SCISSORS:
-                switch (cpuW) {
+                switch (weapon2) {
                     case ROCK:
                         compare = -1;
                         break;
@@ -53,7 +51,6 @@ public class WeaponComparator implements Comparator<Weapon> {
                 }
                 break;
         }
-
         return compare;
     }
 }

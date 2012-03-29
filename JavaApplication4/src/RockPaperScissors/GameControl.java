@@ -1,22 +1,14 @@
-package RockPaperScissors;
-
-
 import java.util.Comparator;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * Runs the game with the main method
- * @version 1.0
- * @author Team Guilty Crown
+ *Calls the RPS methods to display information
+ *Calls the compare method from the weapon class.
+ *Updates the fields of the Information class
  */
 public class GameControl {
 
-    /**    
-     * Runs the game.
-     * Updates match information.
-     * @param args
-     */
     public static void main(String[] args) {
         Information info = new Information();
         RPSDisplayer displayer = new RPSDisplayer();
