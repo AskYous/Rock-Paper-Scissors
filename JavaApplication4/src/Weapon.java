@@ -1,4 +1,3 @@
-package RockPaperScissors;
 
 /**
  * Weapon class. Has fields of ROCK, PAPER, SCISSORS.
