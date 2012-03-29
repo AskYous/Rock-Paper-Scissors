@@ -1,3 +1,4 @@
+package RockPaperScissors;
 /**
  * Displays information and contains the main method that runs and updates the game.
 

@@ -1,3 +1,4 @@
+package RockPaperScissors;
 import java.util.Random;
 
 /**
@@ -11,6 +12,7 @@ public class CPUThrower extends Thrower {
      * @return Cpu's next weapon.
      */
     public Weapon generateWeapon(int ALG_TYPE) {
+        Weapon w;
         if (ALG_TYPE == 1) {
             Random rnd = new Random();
             int code = rnd.nextInt(4);

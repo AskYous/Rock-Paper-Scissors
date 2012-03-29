@@ -1,3 +1,4 @@
+package RockPaperScissors;
 /**
  * This class sets the weapon for the user.
  */

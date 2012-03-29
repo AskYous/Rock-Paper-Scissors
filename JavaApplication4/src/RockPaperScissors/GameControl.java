@@ -1,3 +1,4 @@
+package RockPaperScissors;
 import java.util.Comparator;
 import java.util.InputMismatchException;
 import java.util.Scanner;

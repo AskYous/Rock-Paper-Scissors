@@ -1,3 +1,5 @@
+package RockPaperScissors;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,8 +16,7 @@ public class Information {
     private String matchInfo;
     private final String roundMessage;
     private static final int PLAYERS = 2;
-    private List<Weapon> cpuWeapons;
-    private List<Weapon> userWeapons;
+    private List<Weapon> weaponsThrown;
     private Scores scores;
 
     /**
@@ -35,23 +36,22 @@ public class Information {
         this.rounds = roundsPerMatch;
         this.scores = new Scores();
         this.currentRound = 1;
-        this.userWeapons = new ArrayList<Weapon>();
-        this.cpuWeapons = new ArrayList<Weapon>();
+        this.weaponsThrown = new ArrayList<Weapon>();
 
         this.roundMessage = "-----------------------------------------------------------------"
                 + "\nRock, paper, scissor shoot!"
                 + "\nEnter:'r' for rock, 'p' for paper, 's' for scissor."
                 + "\nOR 'm' for match info,'h' for help";
     }
-    
+
     /**
      * Gets the round intro message
      * @return the message
-     */   
+     */
     public String getRoundMessage() {
         return roundMessage;
-    } 
-    
+    }
+
     /**
      * returns the current round in the match
      * @return rounds
@@ -59,8 +59,7 @@ public class Information {
     public int getRound() {
         return this.currentRound;
     }
-    
-   
+
     /**
      * boolean to see if the match is over. 
      * @return true if match is over. False otherwise.
@@ -68,7 +67,7 @@ public class Information {
     public boolean matchOver() {
         return currentRound > rounds;
     }
-    
+
     /**
      * Sets the number of rounds for the match
      * @param rounds rounds per match
@@ -83,26 +82,26 @@ public class Information {
     public void reset() {
         this.scores.reset();
         this.rounds = 0;
-        this.cpuWeapons.clear();
-        this.userWeapons.clear();
+        this.weaponsThrown.clear();
+        this.weaponsThrown.clear();
     }
 
     /**
      * Updates score depending on if user wins, losses, or ties.
      * @param result Outcome of round
      */
-    public void updateScores(int result){
-        if (result == 0){
+    public void updateScores(int result) {
+        if (result == 0) {
             scores.incrementTie();
         }
-        if (result == -1){
+        if (result == -1) {
             scores.incrementLoss();
         }
-        if (result == 1){
+        if (result == 1) {
             scores.incrementWin();
         }
     }
-    
+
     /**
      * Updates the match information
      * @param userWeapon weapon chose by the user
@@ -110,29 +109,28 @@ public class Information {
      */
     public void updateMatchInfo(Weapon userWeapon, Weapon cpuWeapon) {
         currentRound++;
-        this.matchInfo = "Current Round: " + currentRound + "\t\tWins: " + scores.getWins() + 
-                "\t\t Losses: " + scores.getLosses() + "\t\tTies: " + scores.getTies();
-        userWeapons.add(userWeapon);
-        cpuWeapons.add(cpuWeapon); 
+        this.matchInfo = "Current Round: " + currentRound + "\t\tWins: " + scores.getWins()
+                + "\t\t Losses: " + scores.getLosses() + "\t\tTies: " + scores.getTies();
+        weaponsThrown.add(userWeapon);
+        weaponsThrown.add(cpuWeapon);
         if (currentRound > rounds) {
             this.winner = scores.determineMatchWinner();
-        }        
-    }    
-    
+        }
+    }
+
     /**
      * Updates the match information as a final outro message printing the winner.
      */
     public void updateMatchInfo() {
         currentRound = rounds;
-        if(scores.getWins() == scores.getLosses()){
-        this.matchInfo = "Total Rounds Played: " + currentRound + "\t\tWins: " + scores.getWins() + 
-                "\t\t Losses: " + scores.getLosses() + "\t\tTies: " + scores.getTies() + "\nThe Match ended in a: " + getMatchWinner();
+        if (scores.getWins() == scores.getLosses()) {
+            this.matchInfo = "Total Rounds Played: " + currentRound + "\t\tWins: " + scores.getWins()
+                    + "\t\t Losses: " + scores.getLosses() + "\t\tTies: " + scores.getTies() + "\nThe Match ended in a: " + getMatchWinner();
+        } else {
+            this.matchInfo = "Total Rounds Played: " + currentRound + "\t\tWins: " + scores.getWins()
+                    + "\t\t Losses: " + scores.getLosses() + "\t\tTies: " + scores.getTies() + "\nThe winner is: " + getMatchWinner();
         }
-        else{
-        this.matchInfo = "Total Rounds Played: " + currentRound + "\t\tWins: " + scores.getWins() + 
-                "\t\t Losses: " + scores.getLosses() + "\t\tTies: " + scores.getTies() + "\nThe winner is: " + getMatchWinner();           
-        }
-       
+
     }
 
     /**
@@ -141,7 +139,15 @@ public class Information {
      * @return match info
      */
     public String getMatchInfo() {
-        return matchInfo;  
+        return matchInfo;
+    }
+
+    /**
+     * adds a weapon to the list of weapons
+     * @param w weapon to be added
+     */
+    public void addWeapon(Weapon w) {
+        weaponsThrown.add(w);
     }
 
     /**

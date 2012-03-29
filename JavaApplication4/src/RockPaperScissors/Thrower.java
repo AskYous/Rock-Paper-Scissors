@@ -1,3 +1,4 @@
+package RockPaperScissors;
 /**
  * Holds the weapon that each player holds.
  */
