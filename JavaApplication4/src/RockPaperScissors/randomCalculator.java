@@ -4,6 +4,8 @@
  */
 package RockPaperScissors;
 
+import java.util.Random;
+
 /**
  *
  * @author Yousef_2
@@ -15,7 +17,20 @@ public class randomCalculator extends CalculateWeapon {
 
     @Override
     public Weapon calculateWeapon() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Weapon w = null;
+        Random rnd = new Random();
+            int code = rnd.nextInt(4);
+            while (code == 0) {
+                code = rnd.nextInt(3);
+            }
+            if (code == 1) {
+                w = Weapon.ROCK;
+            } else if (code == 2) {
+                w = Weapon.PAPER;
+            } else if (code == 3) {
+                w = Weapon.SCISSORS;
+            }
+            return w;
     }
     
 }

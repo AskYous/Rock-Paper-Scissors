@@ -10,11 +10,10 @@ package RockPaperScissors;
  */
 public abstract class CalculateWeapon {
 
-    private final int RANDOM = 1;
-    private final int NCALC = 2;
-    private Weapon predictedWeapon;
+    private static final int RANDOM = 1;
+    private static final int NCALC = 2;
 
-    public CalculateWeapon makeCalc(int type) {
+    public static CalculateWeapon makeCalc(int type) {
         switch (type) {
             case RANDOM:
                 return new randomCalculator();
