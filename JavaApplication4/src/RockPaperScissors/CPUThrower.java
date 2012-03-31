@@ -16,11 +16,10 @@ public class CPUThrower extends Thrower {
      * later.
      * @return Cpu's next weapon.
      */
-    public Weapon generateWeapon(int ALG_TYPE) {
+    public void generateWeapon(int ALG_TYPE) {
         Weapon w;
         cw = CalculateWeapon.makeCalc(ALG_TYPE);
         w = cw.calculateWeapon();
         super.setWeapon(w);
-        return w;
     }
 }
