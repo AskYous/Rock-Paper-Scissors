@@ -10,9 +10,6 @@ package RockPaperScissors;
  */
 public class NCalculator extends CalculateWeapon {
 
-    public NCalculator() {
-    }
-
     @Override
     public Weapon calculateWeapon() {
         throw new UnsupportedOperationException("Not supported yet.");

@@ -17,7 +17,10 @@ public class CPUThrower extends Thrower {
      * @return Cpu's next weapon.
      */
     public Weapon generateWeapon(int ALG_TYPE) {
+        Weapon w;
         cw = CalculateWeapon.makeCalc(ALG_TYPE);
-        return cw.calculateWeapon();
+        w = cw.calculateWeapon();
+        super.setWeapon(w);
+        return w;
     }
 }
