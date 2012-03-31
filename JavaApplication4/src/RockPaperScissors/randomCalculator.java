@@ -8,7 +8,7 @@ package RockPaperScissors;
  *
  * @author Yousef_2
  */
-class randomCalculator extends CalculateWeapon {
+public class randomCalculator extends CalculateWeapon {
 
     public randomCalculator() {
     }

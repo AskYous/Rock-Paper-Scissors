@@ -8,7 +8,7 @@ package RockPaperScissors;
  *
  * @author Yousef_2
  */
-class NCalculator extends CalculateWeapon {
+public class NCalculator extends CalculateWeapon {
 
     public NCalculator() {
     }
