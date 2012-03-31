@@ -8,7 +8,7 @@ package RockPaperScissors;
  *
  * @author Yousef_2
  */
-public class CalculateWeapon {
+public abstract class CalculateWeapon {
 
     private final int RANDOM = 1;
     private final int NCALC = 2;
@@ -24,7 +24,5 @@ public class CalculateWeapon {
         throw new IllegalArgumentException("Not a valid type or type not yet supported.");
     }
 
-    public Weapon getPredictedWeapon() {
-        return predictedWeapon;
-    }
+    public abstract Weapon calculateWeapon();
 }

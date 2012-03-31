@@ -14,7 +14,7 @@ class randomCalculator extends CalculateWeapon {
     }
 
     @Override
-    public Weapon CalculateWeapon() {
+    public Weapon calculateWeapon() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
     
