@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package RockPaperScissors;
 
 import java.util.ArrayList;
@@ -23,46 +19,53 @@ public class SmartCalculator extends CalculateWeapon {
         calculatedWeapon = N2();
         return calculatedWeapon;
     }
-    
+
     /**
      * 0 = R
      * 1 = P
      * 2 = S
+     * Ignores first user's weapon
+     * Uses last cpu weapon to generate the smart throw
      * @return 
      */
-    public Weapon N2(){
-        int[] ocurrences = new int[3];
-        Weapon last = weapons.get(weapons.size()-1);
-        for(int i = 0; i < weapons.size() ; i++){
-            //position i is CPU weapon
-            if((weapons.get(i).equals(last)) && i != 0 && i % 2 != 0 && i != weapons.size()-1){
-                if(weapons.get(i+1).equals(Weapon.ROCK)){
-                    ocurrences[0]++;
+    private Weapon N2() {
+        int[] occurrences = new int[3];
+        Weapon last = weapons.get(weapons.size() - 1);
+        for (int i = 0; i < weapons.size(); i++) {
+            //position i is CPU's weapon
+            if ((weapons.get(i).equals(last)) && i != 0 && i % 2 != 0 && i != weapons.size() - 1) {
+                if (weapons.get(i + 1).equals(Weapon.ROCK)) {
+                    occurrences[0]++;
+                } else if (weapons.get(i + 1).equals(Weapon.PAPER)) {
+                    occurrences[1]++;
+                } else if (weapons.get(i + 1).equals(Weapon.SCISSORS)) {
+                    occurrences[2]++;
                 }
-                else if(weapons.get(i+1).equals(Weapon.PAPER)){
-                    ocurrences[1]++;
-                }
-                else if(weapons.get(i+1).equals(Weapon.SCISSORS)){
-                    ocurrences[2]++;
-                }                
-                               
             }
         }
-        int result = 0;
-        for(int i = 1; i < ocurrences.length; i++){
-            if(ocurrences[i] > ocurrences[result])
-                result = i;
-        }
-        if(result == 0){
+
+        int result = count(occurrences);
+
+        if (result == 0) {
             return Weapon.ROCK;
-        }
-        else if(result == 1){
+        } else if (result == 1) {
             return Weapon.PAPER;
-        }
-        else if(result == 2){
+        } else {
             return Weapon.SCISSORS;
         }
-        else
-            return null;
-     }
+    }
+
+    /**
+     * @param occurrences array of occurrences of combinations .
+     * @return position with biggest number
+     */
+    private int count(int[] occurrences) {
+        int result = 0;
+        for (int i = 1; i < occurrences.length; i++) {
+            if (occurrences[i] > occurrences[result]) {
+                result = i;
+            }
+        }
+        return result;
+    }
 }

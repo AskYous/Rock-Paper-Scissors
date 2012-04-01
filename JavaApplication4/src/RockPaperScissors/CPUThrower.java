@@ -12,9 +12,8 @@ public class CPUThrower extends Thrower {
 
 
     /**
-     * Generates computer's next weapon.
-     * @param ALG_TYPE Type of algorithm to generate cpu's next weapon. Used
-     * later.
+     * Generates computer's next weapon base on an algorithm.
+     * @param ALG_TYPE Type of algorithm to generate cpu's next weapon.
      * @return Cpu's next weapon.
      */
     public void generateWeapon(int ALG_TYPE) {
@@ -22,6 +21,7 @@ public class CPUThrower extends Thrower {
         cw = CalculateWeapon.makeCalc(ALG_TYPE);
         w = cw.calculateWeapon();
         super.setWeapon(w);    
+//        cw.appendWeapon(super.getWeapon()); 
     }
 
     /**
@@ -30,7 +30,6 @@ public class CPUThrower extends Thrower {
      */
     public void appendWeapon(Weapon w) {
 //        cw.appendWeapon(w);
-//        cw.appendWeapon(super.getWeapon());     
         weapons.add(w);
         weapons.add(super.getWeapon());  
 

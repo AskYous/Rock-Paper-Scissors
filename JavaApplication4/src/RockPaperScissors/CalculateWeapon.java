@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package RockPaperScissors;
 
 import java.util.ArrayList;
@@ -16,6 +12,11 @@ public abstract class CalculateWeapon {
     private static final int SMARTCALCULATOR = 2;
     private StringBuilder weaponsThrown;
 
+    
+    /**
+     * @param type type of calculator wanted
+     * @return a weapon calculator
+     */
     public static CalculateWeapon makeCalc(int type) {
         switch (type) {
             case RANDOM:

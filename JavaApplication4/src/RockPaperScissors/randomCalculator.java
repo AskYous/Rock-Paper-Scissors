@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package RockPaperScissors;
 
 import java.util.Random;
@@ -15,6 +11,10 @@ public class randomCalculator extends CalculateWeapon {
     public randomCalculator() {
     }
 
+    /**
+     * Randomly chooses a weapon
+     * @return a weapon
+     */
     @Override
     public Weapon calculateWeapon() {
         Weapon w = null;

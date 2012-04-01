@@ -15,7 +15,7 @@ public class Thrower {
     }
 
     /**
-     * Sets the weapon for the cpu. Not used yet as the cpu's weapon is generated at random.
+     * Sets the weapon for the cpu.
      * @param weapon for the cpu
      */
     public void setWeapon(Weapon weapon) {
