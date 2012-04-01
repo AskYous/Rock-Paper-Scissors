@@ -4,6 +4,8 @@
  */
 package RockPaperScissors;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Yousef_2
@@ -13,6 +15,7 @@ public abstract class CalculateWeapon {
     private static final int RANDOM = 1;
     private static final int SMARTCALCULATOR = 2;
     private StringBuilder weaponsThrown;
+    protected ArrayList<Weapon> weapons = new ArrayList<Weapon>();
 
     public static CalculateWeapon makeCalc(int type) {
         switch (type) {
@@ -26,6 +29,7 @@ public abstract class CalculateWeapon {
 
     public void appendWeapon(Weapon w) {
         weaponsThrown.append(w.toString());
+        weapons.add(w);
     }
 
     public String getWeaponsThrown() {

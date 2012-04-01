@@ -45,7 +45,10 @@ public class GameControl {
                 displayer.printMatchInfo(info.getMatchInfo());
             } else if (input.equals("r") || input.equals("p") || input.equals("s")) {
                 user.generateWeapon(input);
-                cpu.generateWeapon(1);
+                if(info.getRound() < 3)
+                    cpu.generateWeapon(1);
+                else
+                    cpu.generateWeapon(2);
 
                 int result = comparator.compare(user.getWeapon(), cpu.getWeapon());
                 switch (result) {
