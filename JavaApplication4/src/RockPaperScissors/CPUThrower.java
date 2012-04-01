@@ -19,6 +19,7 @@ public class CPUThrower extends Thrower {
         cw = CalculateWeapon.makeCalc(ALG_TYPE);
         w = cw.calculateWeapon();
         super.setWeapon(w);
+        cw.appendWeapon(super.getWeapon());
     }
 
     public void appendWeapon(Weapon w) {
