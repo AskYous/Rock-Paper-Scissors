@@ -21,9 +21,9 @@ public class SmartCalculator extends CalculateWeapon {
     }
 
     /**
-     * 0 = R
-     * 1 = P
-     * 2 = S
+     * 0 = R returns P
+     * 1 = P returns S
+     * 2 = S returns R
      * Ignores first user's weapon
      * Uses last cpu weapon to generate the smart throw
      * @return 
@@ -38,7 +38,7 @@ public class SmartCalculator extends CalculateWeapon {
                     occurrences[0]++;
                 } else if (weapons.get(i + 1).equals(Weapon.PAPER)) {
                     occurrences[1]++;
-                } else if (weapons.get(i + 1).equals(Weapon.SCISSORS)) {
+                } else{
                     occurrences[2]++;
                 }
             }
@@ -47,11 +47,11 @@ public class SmartCalculator extends CalculateWeapon {
         int result = count(occurrences);
 
         if (result == 0) {
-            return Weapon.ROCK;
-        } else if (result == 1) {
             return Weapon.PAPER;
-        } else {
+        } else if (result == 1) {
             return Weapon.SCISSORS;
+        } else {
+            return Weapon.ROCK;
         }
     }
 

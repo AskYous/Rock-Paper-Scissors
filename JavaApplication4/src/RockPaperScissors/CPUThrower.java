@@ -25,7 +25,7 @@ public class CPUThrower extends Thrower {
     }
 
     /**
-     * Add the end of a round it add first the user weapon and then the cpu weapon
+     * Add the end of a round it adds first the user weapon and then the cpu weapon
      * @param w 
      */
     public void appendWeapon(Weapon w) {
