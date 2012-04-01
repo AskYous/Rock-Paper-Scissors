@@ -1,11 +1,15 @@
 package RockPaperScissors;
 
+import java.util.ArrayList;
+
 /**
  * Simulates the computer as a player of rock paper scissors game.
  */
 public class CPUThrower extends Thrower {
 
     private CalculateWeapon cw;
+    protected static ArrayList<Weapon> weapons = new ArrayList<Weapon>();
+
 
     /**
      * Generates computer's next weapon.
@@ -17,8 +21,7 @@ public class CPUThrower extends Thrower {
         Weapon w;
         cw = CalculateWeapon.makeCalc(ALG_TYPE);
         w = cw.calculateWeapon();
-        super.setWeapon(w);
-        cw.appendWeapon(super.getWeapon());     
+        super.setWeapon(w);    
     }
 
     /**
@@ -26,8 +29,14 @@ public class CPUThrower extends Thrower {
      * @param w 
      */
     public void appendWeapon(Weapon w) {
-        cw.appendWeapon(w);
-        cw.appendWeapon(super.getWeapon());     
+//        cw.appendWeapon(w);
+//        cw.appendWeapon(super.getWeapon());     
+        weapons.add(w);
+        weapons.add(super.getWeapon());  
 
+    }
+    
+    public static ArrayList<Weapon> getWeapons(){
+        return weapons;
     }
 }

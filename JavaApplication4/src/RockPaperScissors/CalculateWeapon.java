@@ -15,7 +15,6 @@ public abstract class CalculateWeapon {
     private static final int RANDOM = 1;
     private static final int SMARTCALCULATOR = 2;
     private StringBuilder weaponsThrown;
-    protected ArrayList<Weapon> weapons = new ArrayList<Weapon>();
 
     public static CalculateWeapon makeCalc(int type) {
         switch (type) {
@@ -27,14 +26,14 @@ public abstract class CalculateWeapon {
         throw new IllegalArgumentException("Not a valid type or type not yet supported.");
     }
 
-    public void appendWeapon(Weapon w) {
-        weaponsThrown.append(w.toString());
-        weapons.add(w);
-    }
+//    public void appendWeapon(Weapon w) {
+////        weaponsThrown.append(w.toString());
+//        weapons.add(w);
+//    }
 
-    public String getWeaponsThrown() {
-        return weaponsThrown.toString();
-    }
+//    public String getWeaponsThrown() {
+//        return weaponsThrown.toString();
+//    }
 
     public abstract Weapon calculateWeapon();
 }

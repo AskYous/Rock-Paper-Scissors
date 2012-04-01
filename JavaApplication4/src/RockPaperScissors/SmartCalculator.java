@@ -18,8 +18,8 @@ public class SmartCalculator extends CalculateWeapon {
     @Override
     public Weapon calculateWeapon() {
         Weapon calculatedWeapon = null;
-        weaponsThrown = super.getWeaponsThrown().toString();
-        weapons = super.weapons;
+//        weaponsThrown = super.getWeaponsThrown().toString();
+        weapons = CPUThrower.getWeapons();
         calculatedWeapon = N2();
         return calculatedWeapon;
     }
