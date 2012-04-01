@@ -65,6 +65,7 @@ public class GameControl {
                 info.updateScores(result);
 
                 info.updateMatchInfo(user.getWeapon(), cpu.getWeapon());
+                cpu.appendWeapon(user.getWeapon());
             } else {
                 displayer.printInvalid();
             }

@@ -16,7 +16,6 @@ public class Information {
     private String matchInfo;
     private final String roundMessage;
     private static final int PLAYERS = 2;
-    private List<Weapon> weaponsThrown;
     private Scores scores;
 
     /**
@@ -36,7 +35,6 @@ public class Information {
         this.rounds = roundsPerMatch;
         this.scores = new Scores();
         this.currentRound = 1;
-        this.weaponsThrown = new ArrayList<Weapon>();
 
         this.roundMessage = "-----------------------------------------------------------------"
                 + "\nRock, paper, scissor shoot!"
@@ -82,8 +80,6 @@ public class Information {
     public void reset() {
         this.scores.reset();
         this.rounds = 0;
-        this.weaponsThrown.clear();
-        this.weaponsThrown.clear();
     }
 
     /**
@@ -111,8 +107,6 @@ public class Information {
         currentRound++;
         this.matchInfo = "Current Round: " + currentRound + "\t\tWins: " + scores.getWins()
                 + "\t\t Losses: " + scores.getLosses() + "\t\tTies: " + scores.getTies();
-        weaponsThrown.add(userWeapon);
-        weaponsThrown.add(cpuWeapon);
         if (currentRound > rounds) {
             this.winner = scores.determineMatchWinner();
         }
@@ -142,13 +136,6 @@ public class Information {
         return matchInfo;
     }
 
-    /**
-     * adds a weapon to the list of weapons
-     * @param w weapon to be added
-     */
-    public void addWeapon(Weapon w) {
-        weaponsThrown.add(w);
-    }
 
     /**
      * gets the match winner. 

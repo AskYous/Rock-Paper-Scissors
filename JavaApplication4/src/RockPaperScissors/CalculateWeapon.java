@@ -11,16 +11,25 @@ package RockPaperScissors;
 public abstract class CalculateWeapon {
 
     private static final int RANDOM = 1;
-    private static final int NCALC = 2;
+    private static final int SMARTCALCULATOR = 2;
+    private StringBuilder weaponsThrown;
 
     public static CalculateWeapon makeCalc(int type) {
         switch (type) {
             case RANDOM:
                 return new randomCalculator();
-            case NCALC:
-                return new NCalculator();
+            case SMARTCALCULATOR:
+                return new SmartCalculator();
         }
         throw new IllegalArgumentException("Not a valid type or type not yet supported.");
+    }
+
+    public void appendWeapon(Weapon w) {
+        weaponsThrown.append(w.toString());
+    }
+
+    public String getWeaponsThrown() {
+        return weaponsThrown.toString();
     }
 
     public abstract Weapon calculateWeapon();

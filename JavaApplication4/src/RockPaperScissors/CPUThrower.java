@@ -1,7 +1,5 @@
 package RockPaperScissors;
 
-import java.util.Random;
-
 /**
  * Simulates the computer as a player of rock paper scissors game.
  */
@@ -21,5 +19,9 @@ public class CPUThrower extends Thrower {
         cw = CalculateWeapon.makeCalc(ALG_TYPE);
         w = cw.calculateWeapon();
         super.setWeapon(w);
+    }
+
+    public void appendWeapon(Weapon w) {
+        cw.appendWeapon(w);
     }
 }
