@@ -16,7 +16,7 @@ public class SmartCalculator extends CalculateWeapon {
         Weapon calculatedWeapon = null;
 //        weaponsThrown = super.getWeaponsThrown().toString();
         weapons = CPUThrower.getWeapons();
-        calculatedWeapon = N2();
+        calculatedWeapon = yousefsNCalculator(2);
         return calculatedWeapon;
     }
 
@@ -42,8 +42,21 @@ public class SmartCalculator extends CalculateWeapon {
             }
         }
 
-        int result = count(occurrences);
+        return count(occurrences);
+    }
 
+    /**
+     * @param occurrences array of occurrences of combinations .
+     * @return position with biggest number
+     */
+    private Weapon count(int[] occurrences) {
+        int result = 0;
+        for (int i = 1; i < occurrences.length; i++) {
+            if (occurrences[i] > occurrences[result]) {
+                result = i;
+            }
+        }
+      
         if (result == 0) {
             return Weapon.PAPER;
         } else if (result == 1) {
@@ -51,20 +64,7 @@ public class SmartCalculator extends CalculateWeapon {
         } else {
             return Weapon.ROCK;
         }
-    }
 
-    /**
-     * @param occurrences array of occurrences of combinations .
-     * @return position with biggest number
-     */
-    private int count(int[] occurrences) {
-        int result = 0;
-        for (int i = 1; i < occurrences.length; i++) {
-            if (occurrences[i] > occurrences[result]) {
-                result = i;
-            }
-        }
-        return result;
     }
 
     private Weapon yousefsNCalculator(int N) {
@@ -101,19 +101,7 @@ public class SmartCalculator extends CalculateWeapon {
             }
         }
 
-        //determines next weapon to throw.
-        Weapon nextWeapon = null;
-        switch (count(occurrences)) {
-            case 0:
-                nextWeapon = Weapon.PAPER;
-                break;
-            case 1:
-                nextWeapon = Weapon.SCISSORS;
-                break;
-            case 2:
-                nextWeapon = Weapon.ROCK;
-                break;
-        }
-        return nextWeapon;
+        //determines next weapon to throw.                
+        return count(occurrences);
     }
 }
