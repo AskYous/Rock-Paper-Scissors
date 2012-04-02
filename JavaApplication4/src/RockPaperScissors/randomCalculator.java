@@ -6,9 +6,9 @@ import java.util.Random;
  *
  * @author Yousef_2
  */
-public class randomCalculator extends CalculateWeapon {
+public class RandomCalculator extends CalculateWeapon {
 
-    public randomCalculator() {
+    public RandomCalculator() {
     }
 
     /**

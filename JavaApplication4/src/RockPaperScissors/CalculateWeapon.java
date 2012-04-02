@@ -20,7 +20,7 @@ public abstract class CalculateWeapon {
     public static CalculateWeapon makeCalc(int type) {
         switch (type) {
             case RANDOM:
-                return new randomCalculator();
+                return new RandomCalculator();
             case SMARTCALCULATOR:
                 return new SmartCalculator();
         }
