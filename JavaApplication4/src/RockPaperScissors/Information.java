@@ -14,9 +14,9 @@ public class Information {
     private int currentRound;
     private String winner;
     private String matchInfo;
-    private final String roundMessage;
     private static final int PLAYERS = 2;
     private Scores scores;
+    private boolean ended = false;
 
     /**
      * Constructor for Information class. Stores all information
@@ -35,19 +35,6 @@ public class Information {
         this.rounds = roundsPerMatch;
         this.scores = new Scores();
         this.currentRound = 1;
-
-        this.roundMessage = "-----------------------------------------------------------------"
-                + "\nRock, paper, scissor shoot!"
-                + "\nEnter:'r' for rock, 'p' for paper, 's' for scissor."
-                + "\nOR 'm' for match info,'h' for help";
-    }
-
-    /**
-     * Gets the round intro message
-     * @return the message
-     */
-    public String getRoundMessage() {
-        return roundMessage;
     }
 
     /**
@@ -64,6 +51,13 @@ public class Information {
      */
     public boolean matchOver() {
         return currentRound > rounds;
+    }
+    
+    /**
+     * Ends match
+     */
+    public void end(){
+        ended = true;
     }
 
     /**
@@ -115,8 +109,14 @@ public class Information {
     /**
      * Updates the match information as a final outro message printing the winner.
      */
-    public void updateMatchInfo() {
-        currentRound = rounds;
+    public void updateMatchInfo() {                     
+        if(!ended){
+            currentRound = rounds;
+        }
+        else{
+            currentRound--;
+            this.winner = scores.determineMatchWinner();
+        }
         if (scores.getWins() == scores.getLosses()) {
             this.matchInfo = "Total Rounds Played: " + currentRound + "\t\tWins: " + scores.getWins()
                     + "\t\t Losses: " + scores.getLosses() + "\t\tTies: " + scores.getTies() + "\nThe Match ended in a: " + getMatchWinner();
@@ -143,9 +143,6 @@ public class Information {
      * @return winner as a string
      */
     public String getMatchWinner() {
-        if (currentRound != rounds) {
-            throw new IllegalStateException("The match is still being played!");
-        }
         return winner;
     }
 }

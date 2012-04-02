@@ -8,6 +8,7 @@ public class RPSDisplayer {
     String invalid;
     private String helpInfo;
     private final String introMessage;
+    private String roundMessage;
 
     /**
      * Constructor for the displayer class. Sets the messages.
@@ -24,8 +25,21 @@ public class RPSDisplayer {
                 + " its weapon at random. Enter your weapon to use against the computer:";
         this.introMessage = "Welcome to Rock, Paper, Scissor game! "
                 + "Start by entering the number of rounds for this match:";
+        this.roundMessage = "-----------------------------------------------------------------"
+                + "\nRock, paper, scissor shoot!"
+                + "\nEnter:'r' for rock, 'p' for paper, 's' for scissor."
+                + "\nOR 'm' for match info,'h' for help, e to exit";
     }
-
+    
+    
+    /**
+     * Gets the round intro message
+     * @return the message
+     */
+    public void printRoundMessage(int rounds){
+        System.out.println("Round " + rounds + ". " + roundMessage);
+    }
+    
     /**
      * Prints help information.
      */

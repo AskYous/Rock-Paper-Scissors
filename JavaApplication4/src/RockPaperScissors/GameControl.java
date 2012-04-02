@@ -1,4 +1,5 @@
 package RockPaperScissors;
+
 import java.util.Comparator;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -35,20 +36,24 @@ public class GameControl {
 
         while (!info.matchOver()) {
             Scanner scan = new Scanner(System.in);
-            System.out.println("Round " + info.getRound() + ". " + info.getRoundMessage());
+            displayer.printRoundMessage(info.getRound());
 
             input = scan.nextLine();
 
             if (input.equals("h")) {
                 displayer.printHelpInfo();
+            } else if (input.equals("e")) {
+                info.end();
+                break;
             } else if (input.equals("m")) {
                 displayer.printMatchInfo(info.getMatchInfo());
             } else if (input.equals("r") || input.equals("p") || input.equals("s")) {
                 user.generateWeapon(input);
-                if(info.getRound() < 3)
+                if (info.getRound() < 3) {
                     cpu.generateWeapon(1);
-                else
+                } else {
                     cpu.generateWeapon(2);
+                }
 
                 int result = comparator.compare(user.getWeapon(), cpu.getWeapon());
                 switch (result) {

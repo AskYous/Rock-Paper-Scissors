@@ -16,7 +16,7 @@ public class SmartCalculator extends CalculateWeapon {
         Weapon calculatedWeapon = null;
 //        weaponsThrown = super.getWeaponsThrown().toString();
         weapons = CPUThrower.getWeapons();
-        calculatedWeapon = yousefsNCalculator(2);
+        calculatedWeapon = N2();
         return calculatedWeapon;
     }
 
