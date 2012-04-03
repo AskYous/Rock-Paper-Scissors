@@ -16,35 +16,9 @@ public class SmartCalculator extends CalculateWeapon {
         Weapon calculatedWeapon = null;
 //        weaponsThrown = super.getWeaponsThrown().toString();
         weapons = CPUThrower.getWeapons();
-        calculatedWeapon = N2();
         return calculatedWeapon;
     }
-
-    /**
-     * 0 = R returns P 1 = P returns S 2 = S returns R Ignores first user's
-     * weapon Uses last cpu weapon to generate the smart throw
-     *
-     * @return
-     */
-    private Weapon N2() {
-        int[] occurrences = new int[3];
-        Weapon last = weapons.get(weapons.size() - 1);
-        for (int i = 0; i < weapons.size(); i++) {
-            //position i is CPU's weapon
-            if ((weapons.get(i).equals(last)) && (i != 0) && (i % 2 != 0) && (i != weapons.size() - 1)) {
-                if (weapons.get(i + 1).equals(Weapon.ROCK)) {
-                    occurrences[0]++;
-                } else if (weapons.get(i + 1).equals(Weapon.PAPER)) {
-                    occurrences[1]++;
-                } else {
-                    occurrences[2]++;
-                }
-            }
-        }
-
-        return count(occurrences);
-    }
-
+    
     /**
      * @param occurrences array of occurrences of combinations .
      * @return position with biggest number
@@ -56,7 +30,6 @@ public class SmartCalculator extends CalculateWeapon {
                 result = i;
             }
         }
-      
         if (result == 0) {
             return Weapon.PAPER;
         } else if (result == 1) {
@@ -66,7 +39,13 @@ public class SmartCalculator extends CalculateWeapon {
         }
 
     }
-
+    /**
+     * 0 = R returns P 1 = P returns S 2 = S returns R Ignores first user's
+     * weapon Uses last cpu weapon to generate the smart throw
+     *
+     * @return
+     */
+    
     private Weapon yousefsNCalculator(int N) {
         int[] occurrences = new int[3];
 
@@ -88,8 +67,14 @@ public class SmartCalculator extends CalculateWeapon {
         //sequence, into the array. Although all we care about is just the next letter (or weapon).
         String[] temp = weaponsString.split(lastWeaponsThrown);
 
+        
+
         //Sees the next letter in the list. Adds to the occurences[] list just like Carlos's method.
         for (int i = 1; i < temp.length; i++) {
+            //If next weapon was thrown by computer, we ignore it
+            if (!(weaponsString.indexOf(temp[i]) % 2 == 0)) {
+                continue;
+            }
             if (temp[i].startsWith("R")) {
                 occurrences[0]++;
             } else if (temp[i].startsWith("P")) {
