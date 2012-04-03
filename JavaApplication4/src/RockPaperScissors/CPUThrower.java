@@ -28,10 +28,8 @@ public class CPUThrower extends Thrower {
      * @param w 
      */
     public void appendWeapon(Weapon w) {
-//        cw.appendWeapon(w);
         weapons.add(w);
         weapons.add(super.getWeapon());  
-
     }
     
     public static ArrayList<Weapon> getWeapons(){

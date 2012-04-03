@@ -12,11 +12,11 @@ public class SmartCalculator extends CalculateWeapon {
 
     @Override
     public Weapon calculateWeapon() {
-        Weapon calculatedWeapon = NCalculateWeapon(3);//for N = 3... this is wrong.
+        Weapon calculatedWeapon = null;
         weapons = CPUThrower.getWeapons();
+        calculatedWeapon = NCalculateWeapon(3);
         return calculatedWeapon;
     }
-
     /**
      * @param occurrences array of occurrences of combinations .
      * @return position with biggest number
