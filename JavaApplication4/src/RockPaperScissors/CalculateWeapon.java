@@ -10,7 +10,6 @@ public abstract class CalculateWeapon {
 
     private static final int RANDOM = 1;
     private static final int SMARTCALCULATOR = 2;
-    private StringBuilder weaponsThrown;
 
     
     /**

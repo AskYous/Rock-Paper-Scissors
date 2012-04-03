@@ -14,25 +14,15 @@ public class GameControl {
     public static void main(String[] args) {
         Information info = new Information();
         RPSDisplayer displayer = new RPSDisplayer();
+        
+        //This solves our problem that we got -5 pts on
+        int rounds = Integer.parseInt(args[0]);
 
         CPUThrower cpu = new CPUThrower();
         PlayerThrower user = new PlayerThrower();
         String input;
         Comparator<Weapon> comparator = new WeaponComparator();
-
-        displayer.printIntroMessage();
-        int rounds = -1;
-        while (rounds == -1) {
-            try {
-                Scanner scanner = new Scanner(System.in);
-                rounds = scanner.nextInt();
-                info.setRounds(rounds);
-            } catch (InputMismatchException e) {
-                rounds = -1;
-                displayer.printInvalid();
-
-            }
-        }
+        info.setRounds(rounds);
 
         while (!info.matchOver()) {
             Scanner scan = new Scanner(System.in);
