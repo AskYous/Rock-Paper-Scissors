@@ -27,7 +27,7 @@ public class RPSDisplayer {
         this.roundMessage = "-----------------------------------------------------------------"
                 + "\nRock, paper, scissor shoot!"
                 + "\nEnter:'r' for rock, 'p' for paper, 's' for scissor."
-                + "\nOR 'm' for match info,'h' for help, e to exit";
+                + "\nOR 'm' for match info,'h' for help, or 'e' to exit.";
     }
     
     

@@ -15,7 +15,7 @@ public class SmartCalculator extends CalculateWeapon {
     public Weapon calculateWeapon() {
         Weapon calculatedWeapon;
         weapons = CPUThrower.getWeapons();
-        calculatedWeapon = NCalculateWeapon(3);
+        calculatedWeapon = NCalculateWeapon(2);
         return calculatedWeapon;
     }
 
@@ -47,6 +47,7 @@ public class SmartCalculator extends CalculateWeapon {
      * @return
      */
     private Weapon NCalculateWeapon(int N) {
+        //int N;
         int[] occurrences = new int[3];
 
         //String of weapons, instead of List. For example: weaponString = "RPSSPRRPS";
@@ -56,10 +57,11 @@ public class SmartCalculator extends CalculateWeapon {
         for (int i = 0; i < weapons.size(); i++) {
             weaponsString += weapons.get(i).toString();
         }
+
         if (testing) {
             System.out.println(weaponsString);
         }
-        
+
         int tail = weaponsString.length() - 1;
 
         //String of only the last N weapons. 
@@ -94,7 +96,11 @@ public class SmartCalculator extends CalculateWeapon {
 
         //true if no pattern was found.
         if (nextWeapon == null) {
-            nextWeapon = new RandomCalculator().calculateWeapon();
+            if (N == 2) {
+                nextWeapon = new RandomCalculator().calculateWeapon();
+            } else if (N > 2) {
+                nextWeapon = NCalculateWeapon(N++);
+            }
         }
         return nextWeapon;
     }
