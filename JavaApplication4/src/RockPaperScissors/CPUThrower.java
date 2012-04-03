@@ -20,8 +20,7 @@ public class CPUThrower extends Thrower {
         Weapon w;
         cw = CalculateWeapon.makeCalc(ALG_TYPE);
         w = cw.calculateWeapon();
-        super.setWeapon(w);    
-//        cw.appendWeapon(super.getWeapon()); 
+        super.setWeapon(w);
     }
 
     /**

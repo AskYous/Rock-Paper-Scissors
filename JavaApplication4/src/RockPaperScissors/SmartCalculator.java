@@ -89,7 +89,7 @@ public class SmartCalculator extends CalculateWeapon {
         
         //true if no pattern was found.
         if (nextWeapon == null) {
-            nextWeapon = new randomCalculator().calculateWeapon();
+            nextWeapon = new RandomCalculator().calculateWeapon();
         }
         return nextWeapon;
     }
