@@ -1,7 +1,5 @@
 package RockPaperScissors;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author Yousef_2
@@ -19,7 +17,7 @@ public abstract class CalculateWeapon {
     public static CalculateWeapon makeCalc(int type) {
         switch (type) {
             case RANDOM:
-                return new RandomCalculator();
+                return new randomCalculator();
             case SMARTCALCULATOR:
                 return new SmartCalculator();
         }

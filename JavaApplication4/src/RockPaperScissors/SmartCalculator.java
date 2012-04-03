@@ -1,7 +1,6 @@
 package RockPaperScissors;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -13,9 +12,8 @@ public class SmartCalculator extends CalculateWeapon {
 
     @Override
     public Weapon calculateWeapon() {
-        Weapon calculatedWeapon = null;
+        Weapon calculatedWeapon = NCalculateWeapon(3);//for N = 3... this is wrong.
         weapons = CPUThrower.getWeapons();
-        calculatedWeapon = NCalculateWeapon(3);//for N = 3... this is wrong.
         return calculatedWeapon;
     }
 
@@ -91,7 +89,7 @@ public class SmartCalculator extends CalculateWeapon {
         
         //true if no pattern was found.
         if (nextWeapon == null) {
-            nextWeapon = new RandomCalculator().calculateWeapon();
+            nextWeapon = new randomCalculator().calculateWeapon();
         }
         return nextWeapon;
     }
