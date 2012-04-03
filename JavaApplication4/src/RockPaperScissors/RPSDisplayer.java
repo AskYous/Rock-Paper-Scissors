@@ -23,7 +23,7 @@ public class RPSDisplayer {
                 + "-Scissor:'s'\tBeats papers but losses to rocks.\n"
                 + "You are versing the computer and the computer chooses"
                 + " its weapon at random. Enter your weapon to use against the computer:";
-        this.introMessage = "Welcome to Rock, Paper, Scissor game! ";
+        this.introMessage = "Welcome to Rock, Paper, Scissor game!";
         this.roundMessage = "-----------------------------------------------------------------"
                 + "\nRock, paper, scissor shoot!"
                 + "\nEnter:'r' for rock, 'p' for paper, 's' for scissor."

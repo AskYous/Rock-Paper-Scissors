@@ -14,8 +14,8 @@ public class SmartCalculator extends CalculateWeapon {
     @Override
     public Weapon calculateWeapon() {
         Weapon calculatedWeapon = null;
-//        weaponsThrown = super.getWeaponsThrown().toString();
         weapons = CPUThrower.getWeapons();
+        NCalculateWeapon(3);
         return calculatedWeapon;
     }
     
@@ -46,7 +46,7 @@ public class SmartCalculator extends CalculateWeapon {
      * @return
      */
     
-    private Weapon yousefsNCalculator(int N) {
+    private Weapon NCalculateWeapon(int N) {
         int[] occurrences = new int[3];
 
         //String of weapons, instead of List. For example: weaponString = "RPSSPRRPS";

@@ -25,15 +25,6 @@ public abstract class CalculateWeapon {
         }
         throw new IllegalArgumentException("Not a valid type or type not yet supported.");
     }
-
-//    public void appendWeapon(Weapon w) {
-////        weaponsThrown.append(w.toString());
-//        weapons.add(w);
-//    }
-
-//    public String getWeaponsThrown() {
-//        return weaponsThrown.toString();
-//    }
-
+    
     public abstract Weapon calculateWeapon();
 }
