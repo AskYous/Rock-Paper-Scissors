@@ -9,14 +9,16 @@ import java.util.ArrayList;
 public class SmartCalculator extends CalculateWeapon {
 
     private ArrayList<Weapon> weapons = new ArrayList<Weapon>();
+    private boolean testing = false;
 
     @Override
     public Weapon calculateWeapon() {
-        Weapon calculatedWeapon = null;
+        Weapon calculatedWeapon;
         weapons = CPUThrower.getWeapons();
         calculatedWeapon = NCalculateWeapon(3);
         return calculatedWeapon;
     }
+
     /**
      * @param occurrences array of occurrences of combinations .
      * @return position with biggest number
@@ -54,7 +56,10 @@ public class SmartCalculator extends CalculateWeapon {
         for (int i = 0; i < weapons.size(); i++) {
             weaponsString += weapons.get(i).toString();
         }
-
+        if (testing) {
+            System.out.println(weaponsString);
+        }
+        
         int tail = weaponsString.length() - 1;
 
         //String of only the last N weapons. 
@@ -86,7 +91,7 @@ public class SmartCalculator extends CalculateWeapon {
 
         //determines next weapon to throw.
         Weapon nextWeapon = count(occurrences);
-        
+
         //true if no pattern was found.
         if (nextWeapon == null) {
             nextWeapon = new RandomCalculator().calculateWeapon();
