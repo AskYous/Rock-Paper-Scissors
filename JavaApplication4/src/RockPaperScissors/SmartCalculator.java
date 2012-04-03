@@ -15,10 +15,10 @@ public class SmartCalculator extends CalculateWeapon {
     public Weapon calculateWeapon() {
         Weapon calculatedWeapon = null;
         weapons = CPUThrower.getWeapons();
-        NCalculateWeapon(3);
+        calculatedWeapon = NCalculateWeapon(3);//for N = 3... this is wrong.
         return calculatedWeapon;
     }
-    
+
     /**
      * @param occurrences array of occurrences of combinations .
      * @return position with biggest number
@@ -39,13 +39,13 @@ public class SmartCalculator extends CalculateWeapon {
         }
 
     }
+
     /**
      * 0 = R returns P 1 = P returns S 2 = S returns R Ignores first user's
      * weapon Uses last cpu weapon to generate the smart throw
      *
      * @return
      */
-    
     private Weapon NCalculateWeapon(int N) {
         int[] occurrences = new int[3];
 
@@ -67,7 +67,7 @@ public class SmartCalculator extends CalculateWeapon {
         //sequence, into the array. Although all we care about is just the next letter (or weapon).
         String[] temp = weaponsString.split(lastWeaponsThrown);
 
-        
+
 
         //Sees the next letter in the list. Adds to the occurences[] list just like Carlos's method.
         for (int i = 1; i < temp.length; i++) {
@@ -86,7 +86,13 @@ public class SmartCalculator extends CalculateWeapon {
             }
         }
 
-        //determines next weapon to throw.                
-        return count(occurrences);
+        //determines next weapon to throw.
+        Weapon nextWeapon = count(occurrences);
+        
+        //true if no pattern was found.
+        if (nextWeapon == null) {
+            nextWeapon = new RandomCalculator().calculateWeapon();
+        }
+        return nextWeapon;
     }
 }
