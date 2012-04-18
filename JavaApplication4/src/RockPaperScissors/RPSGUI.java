@@ -30,51 +30,118 @@ public class RPSGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        displayerSec = new javax.swing.JTextArea();
-        jPanel3 = new javax.swing.JPanel();
+        north = new javax.swing.JPanel();
+        scoresLabel = new javax.swing.JLabel();
+        winsLabel = new javax.swing.JLabel();
+        lossesLabel = new javax.swing.JLabel();
+        tiesLabel = new javax.swing.JLabel();
+        predicitonLabel = new javax.swing.JLabel();
+        predictionField = new javax.swing.JTextField();
+        winsField = new javax.swing.JTextField();
+        tiesField = new javax.swing.JTextField();
+        lossesField = new javax.swing.JTextField();
+        west = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         difficultyList = new javax.swing.JList();
         difficultyLabel = new javax.swing.JLabel();
         roundInputLabel = new javax.swing.JLabel();
         RoundInputTextField = new javax.swing.JTextField();
-        jPanel4 = new javax.swing.JPanel();
+        south = new javax.swing.JPanel();
         weaponsLabel = new javax.swing.JLabel();
         rockButton = new javax.swing.JButton();
         paperButton = new javax.swing.JButton();
         scissorsButton = new javax.swing.JButton();
         optionsLabel = new javax.swing.JLabel();
         helpButton = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        east = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         displayerMain = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        displayerSec.setColumns(20);
-        displayerSec.setRows(5);
-        displayerSec.setText("SCORE:\nPREDICTION:");
-        jScrollPane3.setViewportView(displayerSec);
+        scoresLabel.setText("SCORES");
 
-        org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jScrollPane3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 637, Short.MAX_VALUE)
-                .addContainerGap())
+        winsLabel.setText("Wins:");
+
+        lossesLabel.setText("Losses:");
+
+        tiesLabel.setText("Ties:");
+
+        predicitonLabel.setText("CURRENT PREDICITON:");
+
+        predictionField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                predictionFieldActionPerformed(evt);
+            }
+        });
+
+        winsField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                winsFieldActionPerformed(evt);
+            }
+        });
+
+        tiesField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tiesFieldActionPerformed(evt);
+            }
+        });
+
+        lossesField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lossesFieldActionPerformed(evt);
+            }
+        });
+
+        org.jdesktop.layout.GroupLayout northLayout = new org.jdesktop.layout.GroupLayout(north);
+        north.setLayout(northLayout);
+        northLayout.setHorizontalGroup(
+            northLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(northLayout.createSequentialGroup()
+                .add(20, 20, 20)
+                .add(northLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(scoresLabel)
+                    .add(predicitonLabel))
+                .add(28, 28, 28)
+                .add(northLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                    .add(northLayout.createSequentialGroup()
+                        .add(winsLabel)
+                        .add(18, 18, 18)
+                        .add(winsField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 113, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(predictionField))
+                .add(32, 32, 32)
+                .add(lossesLabel)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(lossesField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 113, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(44, 44, 44)
+                .add(tiesLabel)
+                .add(18, 18, 18)
+                .add(tiesField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 113, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(153, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .add(jScrollPane3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+        northLayout.setVerticalGroup(
+            northLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(northLayout.createSequentialGroup()
+                .add(20, 20, 20)
+                .add(northLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(scoresLabel)
+                    .add(winsLabel)
+                    .add(winsField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(lossesLabel)
+                    .add(lossesField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(tiesLabel)
+                    .add(tiesField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(northLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(northLayout.createSequentialGroup()
+                        .add(18, 18, 18)
+                        .add(predicitonLabel))
+                    .add(northLayout.createSequentialGroup()
+                        .add(14, 14, 14)
+                        .add(predictionField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
+        getContentPane().add(north, java.awt.BorderLayout.PAGE_START);
 
         difficultyList.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -89,28 +156,28 @@ public class RPSGUI extends javax.swing.JFrame {
 
         RoundInputTextField.setText("Enter Number of Rounds ...");
 
-        org.jdesktop.layout.GroupLayout jPanel3Layout = new org.jdesktop.layout.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel3Layout.createSequentialGroup()
-                .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel3Layout.createSequentialGroup()
+        org.jdesktop.layout.GroupLayout westLayout = new org.jdesktop.layout.GroupLayout(west);
+        west.setLayout(westLayout);
+        westLayout.setHorizontalGroup(
+            westLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(westLayout.createSequentialGroup()
+                .add(westLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(westLayout.createSequentialGroup()
                         .add(10, 10, 10)
-                        .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                        .add(westLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                             .add(jScrollPane1)
-                            .add(jPanel3Layout.createSequentialGroup()
+                            .add(westLayout.createSequentialGroup()
                                 .add(difficultyLabel)
                                 .add(30, 30, 30))
                             .add(RoundInputTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 200, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                    .add(jPanel3Layout.createSequentialGroup()
+                    .add(westLayout.createSequentialGroup()
                         .addContainerGap()
                         .add(roundInputLabel)))
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel3Layout.createSequentialGroup()
+        westLayout.setVerticalGroup(
+            westLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(westLayout.createSequentialGroup()
                 .add(30, 30, 30)
                 .add(difficultyLabel)
                 .add(14, 14, 14)
@@ -119,13 +186,13 @@ public class RPSGUI extends javax.swing.JFrame {
                 .add(roundInputLabel)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(RoundInputTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(120, 120, 120))
+                .add(176, 176, 176))
         );
 
-        getContentPane().add(jPanel3, java.awt.BorderLayout.LINE_START);
+        getContentPane().add(west, java.awt.BorderLayout.LINE_START);
 
         weaponsLabel.setText("WEAPONS:");
-        jPanel4.add(weaponsLabel);
+        south.add(weaponsLabel);
 
         rockButton.setText("ROCK");
         rockButton.addActionListener(new java.awt.event.ActionListener() {
@@ -133,34 +200,34 @@ public class RPSGUI extends javax.swing.JFrame {
                 rockButtonActionPerformed(evt);
             }
         });
-        jPanel4.add(rockButton);
+        south.add(rockButton);
 
         paperButton.setText("PAPER");
-        jPanel4.add(paperButton);
+        south.add(paperButton);
 
         scissorsButton.setText("SCISSORS");
-        jPanel4.add(scissorsButton);
+        south.add(scissorsButton);
 
         optionsLabel.setText("OPTIONS:");
-        jPanel4.add(optionsLabel);
+        south.add(optionsLabel);
 
         helpButton.setText("HELP");
-        jPanel4.add(helpButton);
+        south.add(helpButton);
 
-        getContentPane().add(jPanel4, java.awt.BorderLayout.PAGE_END);
+        getContentPane().add(south, java.awt.BorderLayout.PAGE_END);
 
-        org.jdesktop.layout.GroupLayout jPanel2Layout = new org.jdesktop.layout.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+        org.jdesktop.layout.GroupLayout eastLayout = new org.jdesktop.layout.GroupLayout(east);
+        east.setLayout(eastLayout);
+        eastLayout.setHorizontalGroup(
+            eastLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(0, 100, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 396, Short.MAX_VALUE)
+        eastLayout.setVerticalGroup(
+            eastLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(0, 304, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel2, java.awt.BorderLayout.LINE_END);
+        getContentPane().add(east, java.awt.BorderLayout.LINE_END);
 
         displayerMain.setColumns(20);
         displayerMain.setRows(5);
@@ -174,6 +241,22 @@ public class RPSGUI extends javax.swing.JFrame {
     private void rockButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rockButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rockButtonActionPerformed
+
+    private void predictionFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_predictionFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_predictionFieldActionPerformed
+
+    private void winsFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_winsFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_winsFieldActionPerformed
+
+    private void tiesFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tiesFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tiesFieldActionPerformed
+
+    private void lossesFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lossesFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lossesFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -215,20 +298,27 @@ public class RPSGUI extends javax.swing.JFrame {
     private javax.swing.JLabel difficultyLabel;
     private javax.swing.JList difficultyList;
     private javax.swing.JTextArea displayerMain;
-    private javax.swing.JTextArea displayerSec;
+    private javax.swing.JPanel east;
     private javax.swing.JButton helpButton;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextField lossesField;
+    private javax.swing.JLabel lossesLabel;
+    private javax.swing.JPanel north;
     private javax.swing.JLabel optionsLabel;
     private javax.swing.JButton paperButton;
+    private javax.swing.JLabel predicitonLabel;
+    private javax.swing.JTextField predictionField;
     private javax.swing.JButton rockButton;
     private javax.swing.JLabel roundInputLabel;
     private javax.swing.JButton scissorsButton;
+    private javax.swing.JLabel scoresLabel;
+    private javax.swing.JPanel south;
+    private javax.swing.JTextField tiesField;
+    private javax.swing.JLabel tiesLabel;
     private javax.swing.JLabel weaponsLabel;
+    private javax.swing.JPanel west;
+    private javax.swing.JTextField winsField;
+    private javax.swing.JLabel winsLabel;
     // End of variables declaration//GEN-END:variables
 }
