@@ -32,28 +32,30 @@ public class RPSGUI extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        displayerSec = new javax.swing.JTextArea();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        difficultyList = new javax.swing.JList();
+        difficultyLabel = new javax.swing.JLabel();
+        roundInputLabel = new javax.swing.JLabel();
+        RoundInputTextField = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        weaponsLabel = new javax.swing.JLabel();
+        rockButton = new javax.swing.JButton();
+        paperButton = new javax.swing.JButton();
+        scissorsButton = new javax.swing.JButton();
+        optionsLabel = new javax.swing.JLabel();
+        helpButton = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        displayerMain = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jTextArea2.setText("SCORE:\nPREDICTION:");
-        jScrollPane3.setViewportView(jTextArea2);
+        displayerSec.setColumns(20);
+        displayerSec.setRows(5);
+        displayerSec.setText("SCORE:\nPREDICTION:");
+        jScrollPane3.setViewportView(displayerSec);
 
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -61,7 +63,7 @@ public class RPSGUI extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jScrollPane3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
+                .add(jScrollPane3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 637, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -74,18 +76,18 @@ public class RPSGUI extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
+        difficultyList.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(difficultyList);
 
-        jLabel3.setText("DIFFICULTY:");
+        difficultyLabel.setText("DIFFICULTY:");
 
-        jLabel2.setText("Number of Rounds:");
+        roundInputLabel.setText("Number of Rounds:");
 
-        jTextField1.setText("Enter Number of Rounds ...");
+        RoundInputTextField.setText("Enter Number of Rounds ...");
 
         org.jdesktop.layout.GroupLayout jPanel3Layout = new org.jdesktop.layout.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -98,65 +100,80 @@ public class RPSGUI extends javax.swing.JFrame {
                         .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                             .add(jScrollPane1)
                             .add(jPanel3Layout.createSequentialGroup()
-                                .add(jLabel3)
+                                .add(difficultyLabel)
                                 .add(30, 30, 30))
-                            .add(jTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 200, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                            .add(RoundInputTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 200, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                     .add(jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
-                        .add(jLabel2)))
+                        .add(roundInputLabel)))
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel3Layout.createSequentialGroup()
                 .add(30, 30, 30)
-                .add(jLabel3)
+                .add(difficultyLabel)
                 .add(14, 14, 14)
                 .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(18, 18, 18)
-                .add(jLabel2)
+                .add(roundInputLabel)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(jTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(RoundInputTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(120, 120, 120))
         );
 
         getContentPane().add(jPanel3, java.awt.BorderLayout.LINE_START);
 
-        jLabel1.setText("WEAPONS:");
-        jPanel4.add(jLabel1);
+        weaponsLabel.setText("WEAPONS:");
+        jPanel4.add(weaponsLabel);
 
-        jButton1.setText("ROCK");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        rockButton.setText("ROCK");
+        rockButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                rockButtonActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton1);
+        jPanel4.add(rockButton);
 
-        jButton3.setText("PAPER");
-        jPanel4.add(jButton3);
+        paperButton.setText("PAPER");
+        jPanel4.add(paperButton);
 
-        jButton2.setText("SCISSORS");
-        jPanel4.add(jButton2);
+        scissorsButton.setText("SCISSORS");
+        jPanel4.add(scissorsButton);
 
-        jButton4.setText("HELP");
-        jPanel4.add(jButton4);
+        optionsLabel.setText("OPTIONS:");
+        jPanel4.add(optionsLabel);
+
+        helpButton.setText("HELP");
+        jPanel4.add(helpButton);
 
         getContentPane().add(jPanel4, java.awt.BorderLayout.PAGE_END);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Displays whatever the past displayer did");
-        jScrollPane2.setViewportView(jTextArea1);
+        org.jdesktop.layout.GroupLayout jPanel2Layout = new org.jdesktop.layout.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(0, 100, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(0, 396, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanel2, java.awt.BorderLayout.LINE_END);
+
+        displayerMain.setColumns(20);
+        displayerMain.setRows(5);
+        jScrollPane2.setViewportView(displayerMain);
 
         getContentPane().add(jScrollPane2, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void rockButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rockButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_rockButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -194,22 +211,24 @@ public class RPSGUI extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JList jList1;
+    private javax.swing.JTextField RoundInputTextField;
+    private javax.swing.JLabel difficultyLabel;
+    private javax.swing.JList difficultyList;
+    private javax.swing.JTextArea displayerMain;
+    private javax.swing.JTextArea displayerSec;
+    private javax.swing.JButton helpButton;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel optionsLabel;
+    private javax.swing.JButton paperButton;
+    private javax.swing.JButton rockButton;
+    private javax.swing.JLabel roundInputLabel;
+    private javax.swing.JButton scissorsButton;
+    private javax.swing.JLabel weaponsLabel;
     // End of variables declaration//GEN-END:variables
 }
