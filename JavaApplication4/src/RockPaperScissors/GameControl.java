@@ -1,7 +1,6 @@
 package RockPaperScissors;
 
 import java.util.Comparator;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -15,7 +14,6 @@ public class GameControl {
         Information info = new Information();
         RPSDisplayer displayer = new RPSDisplayer();
         
-        //This solves our problem that we got -5 pts on
         int rounds = Integer.parseInt(args[0]);
 
         CPUThrower cpu = new CPUThrower();
