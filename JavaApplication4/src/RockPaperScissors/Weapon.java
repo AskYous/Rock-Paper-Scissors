@@ -34,4 +34,18 @@ public enum Weapon {
         }
         return wString;
     }
+    
+    public String toFullString(){String wString = null;
+        switch (this) {
+            case ROCK:
+                wString = "Rock";
+                break;
+            case PAPER:
+                wString = "Paper";
+                break;
+            case SCISSORS:
+                wString = "Scissors";
+                break;
+        }
+        return wString;}
 }

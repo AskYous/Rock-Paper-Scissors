@@ -20,7 +20,7 @@ public abstract class CalculateWeapon {
             case SMARTCALCULATOR:
                 return new SmartCalculator(roundNumber);
         }
-        throw new IllegalArgumentException("Not a valid type or type not yet supported.");
+        throw new IllegalArgumentException("Not a valid type or type not yet supported. Type was " + type);
     }
 
     public abstract Weapon calculateWeapon();
