@@ -305,6 +305,8 @@ public class RPSGUI extends javax.swing.JFrame {
         //Set difficulty from list
         difficulty = jList1.getSelectedIndex();
         jPanel1.setBorder(null);
+        disableLeftComponents();
+        EnableNonLeftComponents();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -377,4 +379,26 @@ public class RPSGUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
+
+    private void disableLeftComponents() {
+        jLabel2.setEnabled(false);
+        jTextField1.setEnabled(false);
+        jLabel1.setEnabled(false);
+        jList1.setEnabled(false);
+        jButton1.setEnabled(false);
+    }
+
+    private void EnableNonLeftComponents() {
+        jTextField2.setEnabled(true);
+        jLabel4.setEnabled(true);
+        jList2.setEnabled(true);
+        jList4.setEnabled(true);
+        jList3.setEnabled(true);
+        jLabel3.setEnabled(true);
+        jLabel3.setEnabled(true);
+        jButton2.setEnabled(true);
+        jButton3.setEnabled(true);
+        jButton4.setEnabled(true);
+        
+    }
 }
