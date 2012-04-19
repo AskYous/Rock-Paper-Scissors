@@ -299,14 +299,30 @@ public class RPSGUI extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //Set Rounds from textflield
-        int rounds = Integer.parseInt(jTextField1.getText());
-        info.setRounds(rounds);
+        int rounds = 0;
+        try {
+            rounds = Integer.parseInt(jTextField1.getText());
+        } catch (NumberFormatException e) {
+            jTextField3.setText("Throws per match must be an intiger > 0");
+            return;
+        }
+
+        if (rounds > 0) {
+            info.setRounds(rounds);
+        } else {
+            jTextField3.setText("Throws per match must be an intiger > 0");
+            return;
+        }
 
         //Set difficulty from list
         difficulty = jList1.getSelectedIndex();
+        if (difficulty < 0) {
+            jTextField3.setText("You must choose a difficulty before you can fight");
+            return;
+        }
         jPanel1.setBorder(null);
         disableLeftComponents();
-        EnableNonLeftComponents();
+        enableNonLeftComponents();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -388,7 +404,7 @@ public class RPSGUI extends javax.swing.JFrame {
         jButton1.setEnabled(false);
     }
 
-    private void EnableNonLeftComponents() {
+    private void enableNonLeftComponents() {
         jTextField2.setEnabled(true);
         jLabel4.setEnabled(true);
         jList2.setEnabled(true);
@@ -399,6 +415,6 @@ public class RPSGUI extends javax.swing.JFrame {
         jButton2.setEnabled(true);
         jButton3.setEnabled(true);
         jButton4.setEnabled(true);
-        
+
     }
 }
