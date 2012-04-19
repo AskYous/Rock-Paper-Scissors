@@ -8,11 +8,12 @@ import java.util.Comparator;
  */
 public class RPSGUI extends javax.swing.JFrame {
 
-    Information info = new Information();
-    RPSDisplayer displayer = new RPSDisplayer();
-    CPUThrower cpu = new CPUThrower();
-    PlayerThrower user = new PlayerThrower();
-    Comparator<Weapon> comparator = new WeaponComparator();
+    private static Information info = new Information();
+    private static RPSDisplayer displayer = new RPSDisplayer();
+    private static CPUThrower cpu = new CPUThrower();
+    private static int difficulty;
+    private static PlayerThrower user = new PlayerThrower();
+    private static Comparator<Weapon> comparator = new WeaponComparator();
 
     /**
      * Creates new form RPSGUI
@@ -116,6 +117,7 @@ public class RPSGUI extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.LINE_START);
 
+        jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel3.setEnabled(false);
 
         jList2.setModel(new javax.swing.AbstractListModel() {
@@ -223,7 +225,7 @@ public class RPSGUI extends javax.swing.JFrame {
                     .add(jTextField2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
         );
 
-        jTextField3.setText("Message Center");
+        jTextField3.setText("Enter number of throws per match and difficulty to start");
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3ActionPerformed(evt);
@@ -261,7 +263,7 @@ public class RPSGUI extends javax.swing.JFrame {
                         .add(jPanel5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                            .add(jScrollPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+                            .add(jScrollPane2)
                             .add(org.jdesktop.layout.GroupLayout.LEADING, jScrollPane4)
                             .add(org.jdesktop.layout.GroupLayout.LEADING, jScrollPane1)))
                     .add(jPanel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -299,9 +301,10 @@ public class RPSGUI extends javax.swing.JFrame {
         //Set Rounds from textflield
         int rounds = Integer.parseInt(jTextField1.getText());
         info.setRounds(rounds);
-        
+
         //Set difficulty from list
-        
+        difficulty = jList1.getSelectedIndex();
+        jPanel1.setBorder(null);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

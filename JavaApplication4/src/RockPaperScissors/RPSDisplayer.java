@@ -9,6 +9,7 @@ public class RPSDisplayer {
     private String helpInfo;
     private final String introMessage;
     private String roundMessage;
+    private String GUIIntro;
 
     /**
      * Constructor for the displayer class. Sets the messages.
@@ -28,6 +29,7 @@ public class RPSDisplayer {
                 + "\nRock, paper, scissor shoot!"
                 + "\nEnter:'r' for rock, 'p' for paper, 's' for scissor."
                 + "\nOR 'm' for match info,'h' for help, or 'e' to exit.";
+        this.GUIIntro = "Chhose number of throws per mach and difficulty to begin";
     }
     
     
@@ -112,6 +114,10 @@ public class RPSDisplayer {
                 break;
         }
         return wpn;      
+    }
+
+    public String getGUIIntro() {
+        return GUIIntro;
     }
    
     
