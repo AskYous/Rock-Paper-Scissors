@@ -2,7 +2,6 @@ package RockPaperScissors;
 
 import java.util.Comparator;
 import javax.swing.DefaultListModel;
-import javax.swing.JList;
 
 /**
  *
@@ -123,7 +122,7 @@ public class RPSGUI extends javax.swing.JFrame {
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jScrollPane3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 47, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(jButton1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
+                .add(jButton1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -183,6 +182,7 @@ public class RPSGUI extends javax.swing.JFrame {
         });
 
         jButton6.setText("RESET");
+        jButton6.setEnabled(false);
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -206,7 +206,7 @@ public class RPSGUI extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .add(32, 32, 32)
                 .add(jLabel3)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jButton2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 78, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -214,7 +214,7 @@ public class RPSGUI extends javax.swing.JFrame {
                 .add(jButton3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 76, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jButton4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 78, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .add(jButton5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 39, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jButton6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 39, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
@@ -265,10 +265,13 @@ public class RPSGUI extends javax.swing.JFrame {
         });
 
         jLabel5.setText("Your Throws:");
+        jLabel5.setEnabled(false);
 
         jLabel6.setText("Results:");
+        jLabel6.setEnabled(false);
 
         jLabel7.setText("CPU Throws:");
+        jLabel7.setEnabled(false);
 
         org.jdesktop.layout.GroupLayout jPanel3Layout = new org.jdesktop.layout.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -289,7 +292,7 @@ public class RPSGUI extends javax.swing.JFrame {
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                                 .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                     .add(jPanel3Layout.createSequentialGroup()
-                                        .add(jScrollPane4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
+                                        .add(jScrollPane4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
                                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED))
                                     .add(jPanel3Layout.createSequentialGroup()
                                         .add(jLabel6)
@@ -392,7 +395,6 @@ public class RPSGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-
     }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
@@ -491,39 +493,52 @@ public class RPSGUI extends javax.swing.JFrame {
         jButton2.setEnabled(true);
         jButton3.setEnabled(true);
         jButton4.setEnabled(true);
+        jButton6.setEnabled(true);
+        jLabel5.setEnabled(true);
+        jLabel6.setEnabled(true);
+        jLabel7.setEnabled(true);
     }
 
     private void fight() {
         int result = comparator.compare(user.getWeapon(), cpu.getWeapon());
         if (!info.matchOver()) {
-
             jList4.setModel(matchResults);
             switch (result) {
                 //user wins
                 case (1):
-                    matchResults.addElement("Round " + info.getRound() + ": User Wins");
+                    matchResults.addElement("Round " + info.getRound() + ":\t User Wins");
+
                     break;
                 //tie
                 case (0):
-                    matchResults.addElement("Round " + info.getRound() + ": It's a tie!");
+                    matchResults.addElement("Round " + info.getRound() + ":\t It's a tie!");
                     break;
                 //user loss
                 case (-1):
-                    matchResults.addElement("Round " + info.getRound() + ": CPU Wins");
+                    matchResults.addElement("Round " + info.getRound() + ":\t CPU Wins");
                     break;
             }
-            
+
             info.updateScores(result);
             info.updateMatchInfo(user.getWeapon(), cpu.getWeapon());
 
+            jTextField3.setText("Your Wins: " + info.scores.getWins() + "\t CPU Wins: " + info.scores.getLosses() + "\t Ties: " + info.scores.getTies());
+
             cpu.appendWeapon(user.getWeapon());
 
-            cpuWeapons.addElement(cpu.getWeapon().toString());
-            userWeapons.addElement(user.getWeapon().toString());
+            cpuWeapons.addElement(cpu.getWeapon().toFullString());
+            userWeapons.addElement(user.getWeapon().toFullString());
 
             jList2.setModel(userWeapons);
             jList3.setModel(cpuWeapons);
             jList4.setModel(matchResults);
+            if (cpu.getPredictedWeapon() == null) {
+                jTextField2.setText("");
+            } else {
+                jTextField2.setText(cpu.getPredictedWeapon().toFullString());
+            }
+        } else {
+            jTextField3.setText("Game Over. " + info.getMatchWinner() + " Wins!");
         }
     }
 }

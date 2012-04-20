@@ -20,7 +20,7 @@ public enum Weapon {
 
     @Override
     public String toString() {
-        String wString = null;
+        String wString = "";
         switch (this) {
             case ROCK:
                 wString = "R";
@@ -34,8 +34,9 @@ public enum Weapon {
         }
         return wString;
     }
-    
-    public String toFullString(){String wString = null;
+
+    public String toFullString() {
+        String wString = "";
         switch (this) {
             case ROCK:
                 wString = "Rock";
@@ -47,5 +48,6 @@ public enum Weapon {
                 wString = "Scissors";
                 break;
         }
-        return wString;}
+        return wString;
+    }
 }

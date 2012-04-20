@@ -8,11 +8,16 @@ import java.util.ArrayList;
 public class CPUThrower extends Thrower {
 
     private CalculateWeapon cw;
-    protected static ArrayList<Weapon> weapons = new ArrayList<Weapon>();
+    private Weapon predictedWeapon;
 
+    public Weapon getPredictedWeapon() {
+        return predictedWeapon;
+    }
+    protected static ArrayList<Weapon> weapons = new ArrayList<Weapon>();
 
     /**
      * Generates computer's next weapon base on an algorithm.
+     *
      * @param ALG_TYPE Type of algorithm to generate cpu's next weapon.
      * @return Cpu's next weapon.
      */
@@ -21,18 +26,40 @@ public class CPUThrower extends Thrower {
         cw = CalculateWeapon.makeCalc(ALG_TYPE, roundNumber);
         w = cw.calculateWeapon();
         super.setWeapon(w);
+        if (ALG_TYPE == 1) {
+            setPredictedWeapon(null);
+        } else {
+            setPredictedWeapon(Weapon.ROCK);
+        }
     }
 
     /**
-     * Add the end of a round it adds first the user weapon and then the cpu weapon
-     * @param w 
+     * Add the end of a round it adds first the user weapon and then the cpu
+     * weapon
+     *
+     * @param w
      */
     public void appendWeapon(Weapon w) {
         weapons.add(w);
-        weapons.add(super.getWeapon());  
+        weapons.add(super.getWeapon());
     }
-    
-    public static ArrayList<Weapon> getWeapons(){
+
+    public static ArrayList<Weapon> getWeapons() {
         return weapons;
+    }
+
+    private void setPredictedWeapon(Weapon predictedWeapon) {
+        if (predictedWeapon == null) {
+            this.predictedWeapon = null;
+        } else {
+            switch (predictedWeapon) {
+                case ROCK:
+                    this.predictedWeapon = Weapon.SCISSORS;
+                case PAPER:
+                    this.predictedWeapon = Weapon.ROCK;
+                case SCISSORS:
+                    this.predictedWeapon = Weapon.PAPER;
+            }
+        }
     }
 }

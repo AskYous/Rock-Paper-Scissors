@@ -15,7 +15,7 @@ public class Information {
     private String winner;
     private String matchInfo;
     private static final int PLAYERS = 2;
-    private Scores scores;
+    public Scores scores;
     private boolean ended = false;
 
     /**
