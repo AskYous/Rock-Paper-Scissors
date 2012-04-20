@@ -68,6 +68,7 @@ public class RPSGUI extends javax.swing.JFrame {
         jLabel8.setText("Your Wins:");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(720, 480));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 0), 3));
 
@@ -131,22 +132,13 @@ public class RPSGUI extends javax.swing.JFrame {
         jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel3.setEnabled(false);
 
-        userThrowsList.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Your throws displayed here" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         userThrowsList.setEnabled(false);
         jScrollPane1.setViewportView(userThrowsList);
 
-        cpuThrowsList.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "CPU throws listed here" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         cpuThrowsList.setEnabled(false);
         jScrollPane2.setViewportView(cpuThrowsList);
 
+        rockButton.setBackground(new java.awt.Color(153, 0, 0));
         rockButton.setText("ROCK");
         rockButton.setEnabled(false);
         rockButton.addActionListener(new java.awt.event.ActionListener() {
@@ -155,6 +147,7 @@ public class RPSGUI extends javax.swing.JFrame {
             }
         });
 
+        paperButton.setBackground(new java.awt.Color(0, 255, 204));
         paperButton.setText("PAPER");
         paperButton.setEnabled(false);
         paperButton.addActionListener(new java.awt.event.ActionListener() {
@@ -163,6 +156,7 @@ public class RPSGUI extends javax.swing.JFrame {
             }
         });
 
+        scissorsButton.setBackground(new java.awt.Color(153, 153, 153));
         scissorsButton.setText("SCISSORS");
         scissorsButton.setEnabled(false);
         scissorsButton.addActionListener(new java.awt.event.ActionListener() {
@@ -181,7 +175,8 @@ public class RPSGUI extends javax.swing.JFrame {
             }
         });
 
-        resetButton.setText("RESET");
+        resetButton.setText("Restart");
+        resetButton.setActionCommand("Restart");
         resetButton.setEnabled(false);
         resetButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -217,11 +212,8 @@ public class RPSGUI extends javax.swing.JFrame {
                 .add(resetButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 39, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
         );
 
-        resultsList.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Results displayed here" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
+        resultsList.setBackground(new java.awt.Color(153, 204, 255));
+        resultsList.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         resultsList.setEnabled(false);
         jScrollPane4.setViewportView(resultsList);
 
@@ -291,10 +283,10 @@ public class RPSGUI extends javax.swing.JFrame {
                                     .add(jPanel3Layout.createSequentialGroup()
                                         .add(26, 26, 26)
                                         .add(resultsLabel)
-                                        .add(0, 179, Short.MAX_VALUE))
+                                        .add(0, 84, Short.MAX_VALUE))
                                     .add(jPanel3Layout.createSequentialGroup()
                                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                        .add(jScrollPane4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)))
+                                        .add(jScrollPane4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)))
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                                 .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                     .add(cpuThrowsLabel)
