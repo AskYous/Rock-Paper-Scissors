@@ -55,10 +55,13 @@ public class CPUThrower extends Thrower {
             switch (predictedWeapon) {
                 case ROCK:
                     this.predictedWeapon = Weapon.SCISSORS;
+                    break;
                 case PAPER:
                     this.predictedWeapon = Weapon.ROCK;
+                    break;
                 case SCISSORS:
                     this.predictedWeapon = Weapon.PAPER;
+                    break;
             }
         }
     }
