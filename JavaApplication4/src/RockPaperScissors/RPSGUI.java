@@ -5,7 +5,7 @@ import javax.swing.DefaultListModel;
 
 /**
  *
- * @author kqarlos
+ * @author
  */
 public class RPSGUI extends javax.swing.JFrame {
 
@@ -347,27 +347,38 @@ public class RPSGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_infoButtonActionPerformed
 
+    /**
+     * Generates cpu weapon
+     * sets the user's weapon
+     * calls fight
+     * @param evt rock button pressed
+     */
     private void rockButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rockButtonActionPerformed
         cpu.generateWeapon(difficulty + 1, info.getRound());
         user.setWeapon(Weapon.ROCK);
         fight();
     }//GEN-LAST:event_rockButtonActionPerformed
 
-    //initial FIGHT button
+    /**
+     * Sets the number of Rounds to the info class
+     * Sets the difficulty level
+     * Disables left part and enable right part
+     * @param evt fight button pressed
+     */
     private void figthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_figthButtonActionPerformed
         //Set Rounds from textflield
         int rounds = 0;
         try {
             rounds = Integer.parseInt(throwsPerTextField.getText());
         } catch (NumberFormatException e) {
-            extraTextField.setText("Throws per match must be an intiger > 0");
+            extraTextField.setText("Throws per match must be an integer > 0");
             return;
         }
 
         if (rounds > 0) {
             info.setRounds(rounds);
         } else {
-            extraTextField.setText("Throws per match must be an intiger > 0");
+            extraTextField.setText("Throws per match must be an integer > 0");
             return;
         }
 
@@ -381,12 +392,24 @@ public class RPSGUI extends javax.swing.JFrame {
         enableNonLeftComponents();
     }//GEN-LAST:event_figthButtonActionPerformed
 
+    /**
+     * Generates cpu weapon
+     * sets the user's weapon
+     * calls fight
+     * @param evt paper button pressed
+     */
     private void paperButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paperButtonActionPerformed
         cpu.generateWeapon(difficulty + 1, info.getRound());
         user.setWeapon(Weapon.PAPER);
         fight();
     }//GEN-LAST:event_paperButtonActionPerformed
 
+    /**
+     * Generates cpu weapon
+     * sets the user's weapon
+     * calls fight
+     * @param evt scissors button pressed
+     */
     private void scissorsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scissorsButtonActionPerformed
         cpu.generateWeapon(difficulty + 1, info.getRound());
         user.setWeapon(Weapon.SCISSORS);
@@ -498,6 +521,9 @@ public class RPSGUI extends javax.swing.JFrame {
         cpuThrowsLabel.setEnabled(true);
     }
 
+    /**
+     * 
+     */
     private void fight() {
         int result = comparator.compare(user.getWeapon(), cpu.getWeapon());
         if (!info.matchOver()) {
