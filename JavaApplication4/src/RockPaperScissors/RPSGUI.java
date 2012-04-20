@@ -354,7 +354,6 @@ public class RPSGUI extends javax.swing.JFrame {
      * @param evt rock button pressed
      */
     private void rockButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rockButtonActionPerformed
-        cpu.generateWeapon(difficulty + 1, info.getRound());
         user.setWeapon(Weapon.ROCK);
         fight();
     }//GEN-LAST:event_rockButtonActionPerformed
@@ -399,7 +398,6 @@ public class RPSGUI extends javax.swing.JFrame {
      * @param evt paper button pressed
      */
     private void paperButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paperButtonActionPerformed
-        cpu.generateWeapon(difficulty + 1, info.getRound());
         user.setWeapon(Weapon.PAPER);
         fight();
     }//GEN-LAST:event_paperButtonActionPerformed
@@ -411,7 +409,6 @@ public class RPSGUI extends javax.swing.JFrame {
      * @param evt scissors button pressed
      */
     private void scissorsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scissorsButtonActionPerformed
-        cpu.generateWeapon(difficulty + 1, info.getRound());
         user.setWeapon(Weapon.SCISSORS);
         fight();
     }//GEN-LAST:event_scissorsButtonActionPerformed
@@ -525,6 +522,17 @@ public class RPSGUI extends javax.swing.JFrame {
      * 
      */
     private void fight() {
+        if (difficulty == 0) {
+            cpu.generateWeapon(1, info.getRound());
+        }
+        if (difficulty == 1) {
+            if (info.getRound() < 3) {
+                cpu.generateWeapon(1, info.getRound());
+            } else {
+                cpu.generateWeapon(2, info.getRound());
+            }
+        }
+
         int result = comparator.compare(user.getWeapon(), cpu.getWeapon());
         if (!info.matchOver()) {
             resultsList.setModel(roundResults);
@@ -546,7 +554,7 @@ public class RPSGUI extends javax.swing.JFrame {
             info.updateScores(result);
             info.updateMatchInfo(user.getWeapon(), cpu.getWeapon());
 
-            extraTextField.setText("Your Wins: " + info.scores.getWins() + "\t CPU Wins: " 
+            extraTextField.setText("Your Wins: " + info.scores.getWins() + "\t CPU Wins: "
                     + info.scores.getLosses() + "\t Ties: " + info.scores.getTies());
 
             cpu.appendWeapon(user.getWeapon());
@@ -557,7 +565,7 @@ public class RPSGUI extends javax.swing.JFrame {
             userThrowsList.setModel(userWeapons);
             cpuThrowsList.setModel(cpuWeapons);
             resultsList.setModel(roundResults);
-            
+
             if (cpu.getPredictedWeapon() == null) {
                 predictionTextField.setText("");
             } else {
