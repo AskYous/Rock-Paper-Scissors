@@ -52,7 +52,7 @@ public class CPUThrower extends Thrower {
         if (predictedWeapon == null) {
             this.predictedWeapon = null;
         } else {
-            switch (predictedWeapon) {
+            switch (predictedWeapon) { 
                 case ROCK:
                     this.predictedWeapon = Weapon.SCISSORS;
                     break;
