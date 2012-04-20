@@ -17,6 +17,7 @@ public class RPSGUI extends javax.swing.JFrame {
     private static DefaultListModel roundResults = new DefaultListModel();
     private static DefaultListModel userWeapons = new DefaultListModel();
     private static DefaultListModel cpuWeapons = new DefaultListModel();
+    private static int rounds;
 
     /**
      * Creates new form RPSGUI
@@ -344,7 +345,13 @@ public class RPSGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_predictionTextFieldActionPerformed
 
     private void infoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoButtonActionPerformed
-        // TODO add your handling code here:
+        if (difficulty == 0) {
+            extraTextField.setText("Enter number of throws per match and "
+                    + "difficulty to start!!!!");
+        } else {
+            extraTextField.setText("Choose a weapon from the rigth list of "
+                    + "choices or choose reset to restart the game");
+        }
     }//GEN-LAST:event_infoButtonActionPerformed
 
     /**
@@ -365,7 +372,7 @@ public class RPSGUI extends javax.swing.JFrame {
      */
     private void figthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_figthButtonActionPerformed
         //Set Rounds from textflield
-        int rounds = 0;
+        rounds = 0;
         try {
             rounds = Integer.parseInt(throwsPerTextField.getText());
         } catch (NumberFormatException e) {
@@ -416,6 +423,7 @@ public class RPSGUI extends javax.swing.JFrame {
         roundResults.clear();
         info.reset();
         extraTextField.setText("Reset!");
+        enableNonLeftComponents();
     }//GEN-LAST:event_resetButtonActionPerformed
 
     /**
@@ -574,9 +582,13 @@ public class RPSGUI extends javax.swing.JFrame {
             } else {
                 predictionTextField.setText(cpu.getPredictedWeapon().toFullString());
             }
-        } else {
-            
-            extraTextField.setText("Game Over. " + info.getMatchWinner() + " Wins!");
+        }
+        if (info.getRound() - 1 == rounds) {
+            info.updateMatchInfo();
+            extraTextField.setText(info.getMatchInfo() + "    Reset to start over!");
+            rockButton.setEnabled(false);
+            paperButton.setEnabled(false);
+            scissorsButton.setEnabled(false);
         }
     }
 }

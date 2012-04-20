@@ -118,11 +118,15 @@ public class Information {
             this.winner = scores.determineMatchWinner();
         }
         if (scores.getWins() == scores.getLosses()) {
-            this.matchInfo = "Total Rounds Played: " + currentRound + "\t\tWins: " + scores.getWins()
-                    + "\t\t Losses: " + scores.getLosses() + "\t\tTies: " + scores.getTies() + "\nThe Match ended in a: " + getMatchWinner();
+            this.matchInfo = "Total Rounds: " + currentRound + 
+                    "    Wins: " + scores.getWins() + "    Losses: " + 
+                    scores.getLosses() + "    Ties: " + scores.getTies() + 
+                    "    The Match ended in a: " + getMatchWinner();
         } else {
-            this.matchInfo = "Total Rounds Played: " + currentRound + "\t\tWins: " + scores.getWins()
-                    + "\t\t Losses: " + scores.getLosses() + "\t\tTies: " + scores.getTies() + "\nThe winner is: " + getMatchWinner();
+            this.matchInfo = "Total Rounds: " + currentRound + 
+                    "    Wins: " + scores.getWins() + "    Losses: " + 
+                    scores.getLosses() + "    Ties: " + scores.getTies() + 
+                    "    The winner is: " + getMatchWinner();
         }
 
     }
