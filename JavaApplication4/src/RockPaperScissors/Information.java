@@ -73,7 +73,7 @@ public class Information {
      */
     public void reset() {
         this.scores.reset();
-        this.rounds = 0;
+        this.currentRound = 1;
     }
 
     /**

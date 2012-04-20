@@ -348,7 +348,6 @@ public class RPSGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_infoButtonActionPerformed
 
     /**
-     * Generates cpu weapon
      * sets the user's weapon
      * calls fight
      * @param evt rock button pressed
@@ -382,8 +381,8 @@ public class RPSGUI extends javax.swing.JFrame {
         }
 
         //Set difficulty from list
-        difficulty = difficultyList.getSelectedIndex();
-        if (difficulty < 0) {
+        difficulty = difficultyList.getSelectedIndex() + 1;
+        if (difficulty < 1) {
             extraTextField.setText("You must choose a difficulty before you can fight");
             return;
         }
@@ -392,7 +391,6 @@ public class RPSGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_figthButtonActionPerformed
 
     /**
-     * Generates cpu weapon
      * sets the user's weapon
      * calls fight
      * @param evt paper button pressed
@@ -403,7 +401,6 @@ public class RPSGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_paperButtonActionPerformed
 
     /**
-     * Generates cpu weapon
      * sets the user's weapon
      * calls fight
      * @param evt scissors button pressed
@@ -414,6 +411,11 @@ public class RPSGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_scissorsButtonActionPerformed
 
     private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
+        userWeapons.clear();
+        cpuWeapons.clear();
+        roundResults.clear();
+        info.reset();
+        extraTextField.setText("Reset!");
     }//GEN-LAST:event_resetButtonActionPerformed
 
     /**
@@ -519,18 +521,19 @@ public class RPSGUI extends javax.swing.JFrame {
     }
 
     /**
+     * Generates cpu weapon based on difficulty
+     * generates the result of the comparison
+     * updates the cpuWeapons, userWeapons, results list in GUI
+     * updates scores
+     * updates match info
+     * Updates scores in GUI
      * 
      */
     private void fight() {
-        if (difficulty == 0) {
+        if (info.getRound() < 3) {
             cpu.generateWeapon(1, info.getRound());
-        }
-        if (difficulty == 1) {
-            if (info.getRound() < 3) {
-                cpu.generateWeapon(1, info.getRound());
-            } else {
-                cpu.generateWeapon(2, info.getRound());
-            }
+        } else {
+            cpu.generateWeapon(difficulty, info.getRound());
         }
 
         int result = comparator.compare(user.getWeapon(), cpu.getWeapon());
@@ -572,6 +575,7 @@ public class RPSGUI extends javax.swing.JFrame {
                 predictionTextField.setText(cpu.getPredictedWeapon().toFullString());
             }
         } else {
+            
             extraTextField.setText("Game Over. " + info.getMatchWinner() + " Wins!");
         }
     }

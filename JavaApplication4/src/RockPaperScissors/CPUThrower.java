@@ -29,7 +29,7 @@ public class CPUThrower extends Thrower {
         if (ALG_TYPE == 1) {
             setPredictedWeapon(null);
         } else {
-            setPredictedWeapon(Weapon.ROCK);
+            setPredictedWeapon(w);
         }
     }
 
