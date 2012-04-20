@@ -13,7 +13,7 @@ public class CPUThrower extends Thrower {
     public Weapon getPredictedWeapon() {
         return predictedWeapon;
     }
-    protected static ArrayList<Weapon> weapons = new ArrayList<Weapon>();
+    private static ArrayList<Weapon> weapons = new ArrayList<Weapon>();
 
     /**
      * Generates computer's next weapon base on an algorithm.

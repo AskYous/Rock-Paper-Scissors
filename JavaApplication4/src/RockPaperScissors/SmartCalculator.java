@@ -10,7 +10,7 @@ import java.util.Random;
 public class SmartCalculator extends CalculateWeapon {
 
     private ArrayList<Weapon> weapons = new ArrayList<Weapon>();
-    private boolean testing = false;
+    private boolean testing = true;
     private int round = 0;
 
     public SmartCalculator(int round){

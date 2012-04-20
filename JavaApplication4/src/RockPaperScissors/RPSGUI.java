@@ -10,12 +10,11 @@ import javax.swing.DefaultListModel;
 public class RPSGUI extends javax.swing.JFrame {
 
     private static Information info = new Information();
-    private static RPSDisplayer displayer = new RPSDisplayer();
     private static CPUThrower cpu = new CPUThrower();
     private static int difficulty;
     private static PlayerThrower user = new PlayerThrower();
     private static Comparator<Weapon> comparator = new WeaponComparator();
-    private static DefaultListModel matchResults = new DefaultListModel();
+    private static DefaultListModel roundResults = new DefaultListModel();
     private static DefaultListModel userWeapons = new DefaultListModel();
     private static DefaultListModel cpuWeapons = new DefaultListModel();
 
@@ -502,27 +501,27 @@ public class RPSGUI extends javax.swing.JFrame {
     private void fight() {
         int result = comparator.compare(user.getWeapon(), cpu.getWeapon());
         if (!info.matchOver()) {
-            jList4.setModel(matchResults);
+            jList4.setModel(roundResults);
             switch (result) {
                 //user wins
                 case (1):
-                    matchResults.addElement("Round " + info.getRound() + ":\t User Wins");
-
+                    roundResults.addElement("Round " + info.getRound() + ":\t User Wins");
                     break;
                 //tie
                 case (0):
-                    matchResults.addElement("Round " + info.getRound() + ":\t It's a tie!");
+                    roundResults.addElement("Round " + info.getRound() + ":\t It's a tie!");
                     break;
                 //user loss
                 case (-1):
-                    matchResults.addElement("Round " + info.getRound() + ":\t CPU Wins");
+                    roundResults.addElement("Round " + info.getRound() + ":\t CPU Wins");
                     break;
             }
 
             info.updateScores(result);
             info.updateMatchInfo(user.getWeapon(), cpu.getWeapon());
 
-            jTextField3.setText("Your Wins: " + info.scores.getWins() + "\t CPU Wins: " + info.scores.getLosses() + "\t Ties: " + info.scores.getTies());
+            jTextField3.setText("Your Wins: " + info.scores.getWins() + "\t CPU Wins: " 
+                    + info.scores.getLosses() + "\t Ties: " + info.scores.getTies());
 
             cpu.appendWeapon(user.getWeapon());
 
@@ -531,7 +530,8 @@ public class RPSGUI extends javax.swing.JFrame {
 
             jList2.setModel(userWeapons);
             jList3.setModel(cpuWeapons);
-            jList4.setModel(matchResults);
+            jList4.setModel(roundResults);
+            
             if (cpu.getPredictedWeapon() == null) {
                 jTextField2.setText("");
             } else {
