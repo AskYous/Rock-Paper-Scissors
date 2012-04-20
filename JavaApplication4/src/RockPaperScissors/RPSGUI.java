@@ -59,7 +59,7 @@ public class RPSGUI extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         predictionLabel = new javax.swing.JLabel();
         predictionTextField = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        extraTextField = new javax.swing.JTextField();
         userThrowsLabel = new javax.swing.JLabel();
         resultsLabel = new javax.swing.JLabel();
         cpuThrowsLabel = new javax.swing.JLabel();
@@ -256,10 +256,10 @@ public class RPSGUI extends javax.swing.JFrame {
                     .add(predictionTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
         );
 
-        jTextField3.setText("Enter number of throws per match and difficulty to start");
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        extraTextField.setText("Enter number of throws per match and difficulty to start");
+        extraTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                extraTextFieldActionPerformed(evt);
             }
         });
 
@@ -301,7 +301,7 @@ public class RPSGUI extends javax.swing.JFrame {
                                     .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 130, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)))
                         .add(jPanel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                    .add(jTextField3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE))
+                    .add(extraTextField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -322,7 +322,7 @@ public class RPSGUI extends javax.swing.JFrame {
                             .add(org.jdesktop.layout.GroupLayout.TRAILING, jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)))
                     .add(jPanel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(jTextField3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(extraTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(20, 20, 20))
         );
 
@@ -335,9 +335,9 @@ public class RPSGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_throwsPerTextFieldActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void extraTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_extraTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_extraTextFieldActionPerformed
 
     private void predictionTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_predictionTextFieldActionPerformed
         // TODO add your handling code here:
@@ -360,21 +360,21 @@ public class RPSGUI extends javax.swing.JFrame {
         try {
             rounds = Integer.parseInt(throwsPerTextField.getText());
         } catch (NumberFormatException e) {
-            jTextField3.setText("Throws per match must be an intiger > 0");
+            extraTextField.setText("Throws per match must be an intiger > 0");
             return;
         }
 
         if (rounds > 0) {
             info.setRounds(rounds);
         } else {
-            jTextField3.setText("Throws per match must be an intiger > 0");
+            extraTextField.setText("Throws per match must be an intiger > 0");
             return;
         }
 
         //Set difficulty from list
         difficulty = difficultyList.getSelectedIndex();
         if (difficulty < 0) {
-            jTextField3.setText("You must choose a difficulty before you can fight");
+            extraTextField.setText("You must choose a difficulty before you can fight");
             return;
         }
         disableLeftComponents();
@@ -445,6 +445,7 @@ public class RPSGUI extends javax.swing.JFrame {
     private javax.swing.JList cpuThrowsList;
     private javax.swing.JLabel difficultyLabel;
     private javax.swing.JList difficultyList;
+    private javax.swing.JTextField extraTextField;
     private javax.swing.JButton figthButton;
     private javax.swing.JButton infoButton;
     private javax.swing.JLabel jLabel8;
@@ -456,7 +457,6 @@ public class RPSGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JButton paperButton;
     private javax.swing.JLabel predictionLabel;
     private javax.swing.JTextField predictionTextField;
@@ -520,7 +520,7 @@ public class RPSGUI extends javax.swing.JFrame {
             info.updateScores(result);
             info.updateMatchInfo(user.getWeapon(), cpu.getWeapon());
 
-            jTextField3.setText("Your Wins: " + info.scores.getWins() + "\t CPU Wins: " 
+            extraTextField.setText("Your Wins: " + info.scores.getWins() + "\t CPU Wins: " 
                     + info.scores.getLosses() + "\t Ties: " + info.scores.getTies());
 
             cpu.appendWeapon(user.getWeapon());
@@ -538,7 +538,7 @@ public class RPSGUI extends javax.swing.JFrame {
                 predictionTextField.setText(cpu.getPredictedWeapon().toFullString());
             }
         } else {
-            jTextField3.setText("Game Over. " + info.getMatchWinner() + " Wins!");
+            extraTextField.setText("Game Over. " + info.getMatchWinner() + " Wins!");
         }
     }
 }
