@@ -418,6 +418,7 @@ public class RPSGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_scissorsButtonActionPerformed
 
     private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
+        predictionTextField.setText("");
         userWeapons.clear();
         cpuWeapons.clear();
         roundResults.clear();

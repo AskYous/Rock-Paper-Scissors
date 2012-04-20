@@ -48,11 +48,11 @@ public class CPUThrower extends Thrower {
         return weapons;
     }
 
-    private void setPredictedWeapon(Weapon predictedWeapon) {
-        if (predictedWeapon == null) {
+    private void setPredictedWeapon(Weapon predicted) {
+        if (predicted == null) {
             this.predictedWeapon = null;
         } else {
-            switch (predictedWeapon) {
+            switch (predicted) {
                 case ROCK:
                     this.predictedWeapon = Weapon.SCISSORS;
                 case PAPER:
