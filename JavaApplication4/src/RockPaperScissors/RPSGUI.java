@@ -38,27 +38,27 @@ public class RPSGUI extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
+        difficultyList = new javax.swing.JList();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        throwsPerTextField = new javax.swing.JTextField();
+        figthButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList();
+        userThrowsList = new javax.swing.JList();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList3 = new javax.swing.JList();
+        cpuThrowsList = new javax.swing.JList();
         jPanel2 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        rockButton = new javax.swing.JButton();
+        paperButton = new javax.swing.JButton();
+        scissorsButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        infoButton = new javax.swing.JButton();
+        resetButton = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jList4 = new javax.swing.JList();
+        resultsList = new javax.swing.JList();
         jPanel5 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        predictionTextField = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -72,26 +72,26 @@ public class RPSGUI extends javax.swing.JFrame {
 
         jLabel1.setText("Set  Difficulty:");
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
+        difficultyList.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "1 Random CPU", "2 Smart CPU" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane3.setViewportView(jList1);
+        jScrollPane3.setViewportView(difficultyList);
 
         jLabel2.setText("Throws Per Match:");
 
-        jTextField1.setText("10");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        throwsPerTextField.setText("10");
+        throwsPerTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                throwsPerTextFieldActionPerformed(evt);
             }
         });
 
-        jButton1.setText("FIGHT!");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        figthButton.setText("FIGHT!");
+        figthButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                figthButtonActionPerformed(evt);
             }
         });
 
@@ -102,11 +102,11 @@ public class RPSGUI extends javax.swing.JFrame {
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jScrollPane3)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jLabel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, jScrollPane3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, jLabel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
                     .add(org.jdesktop.layout.GroupLayout.LEADING, jLabel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jTextField1)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jButton1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, throwsPerTextField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, figthButton, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -115,13 +115,13 @@ public class RPSGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .add(jLabel2)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(throwsPerTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jLabel1)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jScrollPane3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 47, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(jButton1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
+                .add(figthButton, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -130,61 +130,61 @@ public class RPSGUI extends javax.swing.JFrame {
         jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel3.setEnabled(false);
 
-        jList2.setModel(new javax.swing.AbstractListModel() {
+        userThrowsList.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Your throws displayed here" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jList2.setEnabled(false);
-        jScrollPane1.setViewportView(jList2);
+        userThrowsList.setEnabled(false);
+        jScrollPane1.setViewportView(userThrowsList);
 
-        jList3.setModel(new javax.swing.AbstractListModel() {
+        cpuThrowsList.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "CPU throws listed here" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jList3.setEnabled(false);
-        jScrollPane2.setViewportView(jList3);
+        cpuThrowsList.setEnabled(false);
+        jScrollPane2.setViewportView(cpuThrowsList);
 
-        jButton2.setText("ROCK");
-        jButton2.setEnabled(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        rockButton.setText("ROCK");
+        rockButton.setEnabled(false);
+        rockButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                rockButtonActionPerformed(evt);
             }
         });
 
-        jButton3.setText("PAPER");
-        jButton3.setEnabled(false);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        paperButton.setText("PAPER");
+        paperButton.setEnabled(false);
+        paperButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                paperButtonActionPerformed(evt);
             }
         });
 
-        jButton4.setText("SCISSORS");
-        jButton4.setEnabled(false);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        scissorsButton.setText("SCISSORS");
+        scissorsButton.setEnabled(false);
+        scissorsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                scissorsButtonActionPerformed(evt);
             }
         });
 
         jLabel3.setText("Choose Your Weapon:");
         jLabel3.setEnabled(false);
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/info3.png"))); // NOI18N
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        infoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/info3.png"))); // NOI18N
+        infoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                infoButtonActionPerformed(evt);
             }
         });
 
-        jButton6.setText("RESET");
-        jButton6.setEnabled(false);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        resetButton.setText("RESET");
+        resetButton.setEnabled(false);
+        resetButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                resetButtonActionPerformed(evt);
             }
         });
 
@@ -194,11 +194,11 @@ public class RPSGUI extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel2Layout.createSequentialGroup()
                 .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jButton6, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jButton5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jButton2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jButton3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jButton4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, resetButton, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, infoButton, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, rockButton, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, paperButton, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, scissorsButton, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .add(org.jdesktop.layout.GroupLayout.LEADING, jLabel3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .add(0, 2, Short.MAX_VALUE))
         );
@@ -208,32 +208,32 @@ public class RPSGUI extends javax.swing.JFrame {
                 .add(32, 32, 32)
                 .add(jLabel3)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(jButton2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 78, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(rockButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 78, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jButton3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 76, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(paperButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 76, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jButton4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 78, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .add(jButton5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 39, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(scissorsButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 78, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 3, Short.MAX_VALUE)
+                .add(infoButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 39, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jButton6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 39, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(resetButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 39, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
         );
 
-        jList4.setModel(new javax.swing.AbstractListModel() {
+        resultsList.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Results displayed here" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jList4.setEnabled(false);
-        jScrollPane4.setViewportView(jList4);
+        resultsList.setEnabled(false);
+        jScrollPane4.setViewportView(resultsList);
 
         jLabel4.setText("CPU thinks you will throw");
         jLabel4.setEnabled(false);
 
-        jTextField2.setEnabled(false);
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        predictionTextField.setEnabled(false);
+        predictionTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                predictionTextFieldActionPerformed(evt);
             }
         });
 
@@ -244,7 +244,7 @@ public class RPSGUI extends javax.swing.JFrame {
             .add(jPanel5Layout.createSequentialGroup()
                 .add(jLabel4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jTextField2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 119, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(predictionTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 119, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(72, 72, 72))
         );
         jPanel5Layout.setVerticalGroup(
@@ -253,7 +253,7 @@ public class RPSGUI extends javax.swing.JFrame {
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel4)
-                    .add(jTextField2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                    .add(predictionTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
         );
 
         jTextField3.setText("Enter number of throws per match and difficulty to start");
@@ -283,7 +283,7 @@ public class RPSGUI extends javax.swing.JFrame {
                         .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(jPanel3Layout.createSequentialGroup()
                                 .add(jPanel5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(0, 0, Short.MAX_VALUE))
+                                .add(0, 83, Short.MAX_VALUE))
                             .add(jPanel3Layout.createSequentialGroup()
                                 .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                     .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -291,7 +291,7 @@ public class RPSGUI extends javax.swing.JFrame {
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                                 .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                     .add(jPanel3Layout.createSequentialGroup()
-                                        .add(jScrollPane4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                                        .add(jScrollPane4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
                                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED))
                                     .add(jPanel3Layout.createSequentialGroup()
                                         .add(jLabel6)
@@ -301,7 +301,7 @@ public class RPSGUI extends javax.swing.JFrame {
                                     .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 130, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)))
                         .add(jPanel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                    .add(jTextField3))
+                    .add(jTextField3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 585, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -317,9 +317,9 @@ public class RPSGUI extends javax.swing.JFrame {
                             .add(jLabel7))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jScrollPane4)
-                            .add(jScrollPane2)
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jScrollPane1)))
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jScrollPane4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                            .add(jScrollPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)))
                     .add(jPanel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jTextField3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -331,34 +331,34 @@ public class RPSGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void throwsPerTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_throwsPerTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_throwsPerTextFieldActionPerformed
 
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void predictionTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_predictionTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_predictionTextFieldActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void infoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_infoButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void rockButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rockButtonActionPerformed
         cpu.generateWeapon(difficulty + 1, info.getRound());
         user.setWeapon(Weapon.ROCK);
         fight();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_rockButtonActionPerformed
 
     //initial FIGHT button
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void figthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_figthButtonActionPerformed
         //Set Rounds from textflield
         int rounds = 0;
         try {
-            rounds = Integer.parseInt(jTextField1.getText());
+            rounds = Integer.parseInt(throwsPerTextField.getText());
         } catch (NumberFormatException e) {
             jTextField3.setText("Throws per match must be an intiger > 0");
             return;
@@ -372,29 +372,29 @@ public class RPSGUI extends javax.swing.JFrame {
         }
 
         //Set difficulty from list
-        difficulty = jList1.getSelectedIndex();
+        difficulty = difficultyList.getSelectedIndex();
         if (difficulty < 0) {
             jTextField3.setText("You must choose a difficulty before you can fight");
             return;
         }
         disableLeftComponents();
         enableNonLeftComponents();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_figthButtonActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void paperButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paperButtonActionPerformed
         cpu.generateWeapon(difficulty + 1, info.getRound());
         user.setWeapon(Weapon.PAPER);
         fight();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_paperButtonActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void scissorsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scissorsButtonActionPerformed
         cpu.generateWeapon(difficulty + 1, info.getRound());
         user.setWeapon(Weapon.SCISSORS);
         fight();
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_scissorsButtonActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
+    }//GEN-LAST:event_resetButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -441,12 +441,10 @@ public class RPSGUI extends javax.swing.JFrame {
 
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JList cpuThrowsList;
+    private javax.swing.JList difficultyList;
+    private javax.swing.JButton figthButton;
+    private javax.swing.JButton infoButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -455,10 +453,6 @@ public class RPSGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JList jList1;
-    private javax.swing.JList jList2;
-    private javax.swing.JList jList3;
-    private javax.swing.JList jList4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -467,32 +461,38 @@ public class RPSGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JButton paperButton;
+    private javax.swing.JTextField predictionTextField;
+    private javax.swing.JButton resetButton;
+    private javax.swing.JList resultsList;
+    private javax.swing.JButton rockButton;
+    private javax.swing.JButton scissorsButton;
+    private javax.swing.JTextField throwsPerTextField;
+    private javax.swing.JList userThrowsList;
     // End of variables declaration//GEN-END:variables
 
     private void disableLeftComponents() {
         jPanel1.setBorder(null);
         jLabel2.setEnabled(false);
-        jTextField1.setEnabled(false);
+        throwsPerTextField.setEnabled(false);
         jLabel1.setEnabled(false);
-        jList1.setEnabled(false);
-        jButton1.setEnabled(false);
+        difficultyList.setEnabled(false);
+        figthButton.setEnabled(false);
     }
 
     private void enableNonLeftComponents() {
-        jTextField2.setEnabled(true);
+        predictionTextField.setEnabled(true);
         jLabel4.setEnabled(true);
-        jList2.setEnabled(true);
-        jList4.setEnabled(true);
-        jList3.setEnabled(true);
+        userThrowsList.setEnabled(true);
+        resultsList.setEnabled(true);
+        cpuThrowsList.setEnabled(true);
         jLabel3.setEnabled(true);
         jLabel3.setEnabled(true);
-        jButton2.setEnabled(true);
-        jButton3.setEnabled(true);
-        jButton4.setEnabled(true);
-        jButton6.setEnabled(true);
+        rockButton.setEnabled(true);
+        paperButton.setEnabled(true);
+        scissorsButton.setEnabled(true);
+        resetButton.setEnabled(true);
         jLabel5.setEnabled(true);
         jLabel6.setEnabled(true);
         jLabel7.setEnabled(true);
@@ -501,7 +501,7 @@ public class RPSGUI extends javax.swing.JFrame {
     private void fight() {
         int result = comparator.compare(user.getWeapon(), cpu.getWeapon());
         if (!info.matchOver()) {
-            jList4.setModel(roundResults);
+            resultsList.setModel(roundResults);
             switch (result) {
                 //user wins
                 case (1):
@@ -528,14 +528,14 @@ public class RPSGUI extends javax.swing.JFrame {
             cpuWeapons.addElement(cpu.getWeapon().toFullString());
             userWeapons.addElement(user.getWeapon().toFullString());
 
-            jList2.setModel(userWeapons);
-            jList3.setModel(cpuWeapons);
-            jList4.setModel(roundResults);
+            userThrowsList.setModel(userWeapons);
+            cpuThrowsList.setModel(cpuWeapons);
+            resultsList.setModel(roundResults);
             
             if (cpu.getPredictedWeapon() == null) {
-                jTextField2.setText("");
+                predictionTextField.setText("");
             } else {
-                jTextField2.setText(cpu.getPredictedWeapon().toFullString());
+                predictionTextField.setText(cpu.getPredictedWeapon().toFullString());
             }
         } else {
             jTextField3.setText("Game Over. " + info.getMatchWinner() + " Wins!");
