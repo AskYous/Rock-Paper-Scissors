@@ -384,8 +384,8 @@ public class RPSGUI extends javax.swing.JFrame {
             extraTextField.setText("You must choose a difficulty before you can fight");
             return;
         }
-        disableLeftComponents();
-        enableNonLeftComponents();
+        disableLeftComponents(false);
+        enableComponents(true);
     }//GEN-LAST:event_figthButtonActionPerformed
 
     /**
@@ -415,7 +415,8 @@ public class RPSGUI extends javax.swing.JFrame {
         roundResults.clear();
         info.reset();
         extraTextField.setText("Reset!");
-        enableNonLeftComponents();
+        disableLeftComponents(true);
+        enableComponents(false);
     }//GEN-LAST:event_resetButtonActionPerformed
 
     /**
@@ -494,30 +495,30 @@ public class RPSGUI extends javax.swing.JFrame {
     private javax.swing.JLabel weaponLabel;
     // End of variables declaration//GEN-END:variables
 
-    private void disableLeftComponents() {
+    private void disableLeftComponents(boolean enable) {
         jPanel1.setBorder(null);
-        throwsPerLabel.setEnabled(false);
-        throwsPerTextField.setEnabled(false);
-        difficultyLabel.setEnabled(false);
-        difficultyList.setEnabled(false);
-        figthButton.setEnabled(false);
+        throwsPerLabel.setEnabled(enable);
+        throwsPerTextField.setEnabled(enable);
+        difficultyLabel.setEnabled(enable);
+        difficultyList.setEnabled(enable);
+        figthButton.setEnabled(enable);
     }
 
-    private void enableNonLeftComponents() {
-        predictionTextField.setEnabled(true);
-        predictionLabel.setEnabled(true);
-        userThrowsList.setEnabled(true);
-        resultsList.setEnabled(true);
-        cpuThrowsList.setEnabled(true);
-        weaponLabel.setEnabled(true);
-        weaponLabel.setEnabled(true);
-        rockButton.setEnabled(true);
-        paperButton.setEnabled(true);
-        scissorsButton.setEnabled(true);
-        resetButton.setEnabled(true);
-        userThrowsLabel.setEnabled(true);
-        resultsLabel.setEnabled(true);
-        cpuThrowsLabel.setEnabled(true);
+    private void enableComponents(boolean enable) {
+        predictionTextField.setEnabled(enable);
+        predictionLabel.setEnabled(enable);
+        userThrowsList.setEnabled(enable);
+        resultsList.setEnabled(enable);
+        cpuThrowsList.setEnabled(enable);
+        weaponLabel.setEnabled(enable);
+        weaponLabel.setEnabled(enable);
+        rockButton.setEnabled(enable);
+        paperButton.setEnabled(enable);
+        scissorsButton.setEnabled(enable);
+        resetButton.setEnabled(enable);
+        userThrowsLabel.setEnabled(enable);
+        resultsLabel.setEnabled(enable);
+        cpuThrowsLabel.setEnabled(enable);
     }
 
     /**
