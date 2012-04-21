@@ -152,7 +152,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="14" max="32767" attributes="0"/>
+                                  <EmptySpace pref="41" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -200,9 +200,9 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jScrollPane2" pref="299" max="32767" attributes="0"/>
-                              <Component id="jScrollPane1" alignment="1" pref="299" max="32767" attributes="0"/>
-                              <Component id="jScrollPane4" alignment="0" pref="299" max="32767" attributes="0"/>
+                              <Component id="jScrollPane2" pref="292" max="32767" attributes="0"/>
+                              <Component id="jScrollPane1" alignment="1" pref="292" max="32767" attributes="0"/>
+                              <Component id="jScrollPane4" alignment="0" pref="292" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Component id="jPanel2" max="32767" attributes="0"/>
@@ -400,7 +400,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="predictionLabel">
               <Properties>
-                <Property name="text" type="java.lang.String" value="CPU thinks you will throw"/>
+                <Property name="text" type="java.lang.String" value="CPU&apos;s prediction was:"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
